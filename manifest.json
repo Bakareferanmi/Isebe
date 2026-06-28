@@ -1,0 +1,17 @@
+{
+  "name": "Isebe — Taste the Culture",
+  "short_name": "Isebe",
+  "description": "Order authentic Nigerian food online from Isebe — Jollof, Suya & Shawarma in Lagos.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFAF7",
+  "theme_color": "#FF4500",
+  "orientation": "portrait",
+  "lang": "en-NG",
+  "categories": ["food", "shopping"],
+  "icons": [
+    { "src": "/icon-64.png",  "sizes": "64x64",   "type": "image/png" },
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
