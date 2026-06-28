@@ -1,0 +1,2084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<!-- ── Primary SEO ── -->
+<title>Isebe — Taste the Culture | Jollof, Suya & Shawarma in Lagos</title>
+<meta name="description" content="Order authentic Nigerian food online from Isebe — the best party jollof, suya, shawarma & more. Delivery across Lagos. Open daily 8 AM – 10 PM."/>
+<meta name="keywords" content="Isebe, Nigerian food Lagos, jollof rice delivery Lagos, suya Lagos, shawarma Lagos, Yaba food delivery, order food online Lagos, authentic Nigerian cuisine"/>
+<meta name="author" content="Isebe"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://do-d6d535.netlify.app/"/>
+
+<!-- ── Favicon (logo) ── -->
+<link rel="icon" type="image/png" href="https://cdn.phototourl.com/free/2026-06-27-596d78f6-d69a-45d6-86c8-176ed1d9d8d0.png"/>
+<link rel="apple-touch-icon" href="https://cdn.phototourl.com/free/2026-06-27-596d78f6-d69a-45d6-86c8-176ed1d9d8d0.png"/>
+
+<!-- ── Open Graph (Facebook, WhatsApp, LinkedIn) ── -->
+<meta property="og:type" content="restaurant"/>
+<meta property="og:site_name" content="Isebe"/>
+<meta property="og:title" content="Isebe — Taste the Culture | Jollof, Suya & Shawarma in Lagos"/>
+<meta property="og:description" content="Order authentic Nigerian food online from Isebe — the best party jollof, suya, shawarma & more. Delivery across Lagos. Open daily 8 AM – 10 PM."/>
+<meta property="og:image" content="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=1200&auto=format&fit=crop&q=80"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Isebe — Authentic Nigerian food, Lagos"/>
+<meta property="og:url" content="https://do-d6d535.netlify.app/"/>
+<meta property="og:locale" content="en_NG"/>
+
+<!-- ── Twitter / X Card ── -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Isebe — Taste the Culture | Jollof, Suya & Shawarma in Lagos"/>
+<meta name="twitter:description" content="Order authentic Nigerian food online from Isebe — the best party jollof, suya, shawarma & more. Delivery across Lagos."/>
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=1200&auto=format&fit=crop&q=80"/>
+
+<!-- ── Geo & Business ── -->
+<meta name="geo.region" content="NG-LA"/>
+<meta name="geo.placename" content="Yaba, Lagos, Nigeria"/>
+<meta name="geo.position" content="6.5158;3.3786"/>
+<meta name="ICBM" content="6.5158, 3.3786"/>
+
+<!-- ── Theme color ── -->
+<meta name="theme-color" content="#FF4500"/>
+<meta name="msapplication-TileColor" content="#FF4500"/>
+
+<!-- ── JSON-LD Structured Data ── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Isebe",
+  "alternateName": "Isebe Lagos",
+  "description": "Authentic Nigerian cuisine — best party jollof, suya, shawarma and more. Order online for delivery across Lagos.",
+  "url": "https://do-d6d535.netlify.app/",
+  "logo": "https://cdn.phototourl.com/free/2026-06-27-596d78f6-d69a-45d6-86c8-176ed1d9d8d0.png",
+  "image": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=1200&auto=format&fit=crop&q=80",
+  "telephone": "+234 800 000 0000",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "12 Herbert Macaulay Way",
+    "addressLocality": "Yaba",
+    "addressRegion": "Lagos",
+    "postalCode": "101212",
+    "addressCountry": "NG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 6.5158,
+    "longitude": 3.3786
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "08:00",
+      "closes": "22:00"
+    }
+  ],
+  "servesCuisine": ["Nigerian", "African", "West African"],
+  "priceRange": "₦₦",
+  "currenciesAccepted": "NGN",
+  "paymentAccepted": "Bank Transfer",
+  "hasMap": "https://maps.google.com/?q=12+Herbert+Macaulay+Way+Yaba+Lagos",
+  "areaServed": ["Yaba", "Surulere", "Maryland", "Ikeja", "Ikorodu Road", "Lagos"],
+  "sameAs": []
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<!-- Firebase compat layer (no bundler needed) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brand:#FF4500;--brand-dark:#CC3700;--brand-glow:rgba(255,69,0,0.22);
+  --ink:#1A0A00;--ink-mid:#6B4F3A;--ink-light:#A8896E;
+  --surface:#FFFAF7;--surface2:#FFF3EC;--border:#F0E0D4;--white:#FFFFFF;
+  --font-display:'Poppins',sans-serif;--font-body:'Poppins',sans-serif;
+  --r-sm:12px;--r-md:18px;--r-lg:24px;--r-xl:32px;--r-full:999px;
+  --shadow-soft:0 2px 16px rgba(26,10,0,.07);--shadow-card:0 4px 28px rgba(26,10,0,.09);--shadow-cta:0 6px 24px rgba(255,69,0,.38);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--surface);color:var(--ink);-webkit-font-smoothing:antialiased;max-width:480px;margin:0 auto;min-height:100vh;overflow-x:hidden}
+
+/* ── TOPBAR ── */
+.topbar{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:rgba(255,250,247,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.tb-logo{display:flex;align-items:center;gap:10px}
+.tb-logomark{width:48px;height:48px;display:flex;align-items:center;justify-content:center}
+.tb-logomark img{width:48px;height:48px;object-fit:contain;display:block;filter:drop-shadow(0 1px 3px rgba(26,10,0,.12))}
+.tb-wordmark{font-family:var(--font-display);font-size:17px;font-weight:800;letter-spacing:-.4px;color:var(--ink)}
+.tb-right{display:flex;align-items:center;gap:10px}
+.tb-cart-btn{display:flex;align-items:center;gap:7px;padding:8px 14px;background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-full);font-family:var(--font-body);font-size:13px;font-weight:600;color:var(--ink);cursor:pointer;transition:background .15s}
+.tb-cart-btn:hover{background:var(--surface2)}
+.tb-cart-btn svg{width:15px;height:15px;color:var(--brand)}
+.tb-badge{background:var(--brand);color:#fff;font-size:10px;font-weight:700;width:18px;height:18px;border-radius:var(--r-full);display:none;align-items:center;justify-content:center}
+.tb-badge.show{display:flex}
+.tb-logo{cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;transition:opacity .1s}
+.tb-logo:active{opacity:.6}
+
+/* ── HERO ── */
+.hero{position:relative;height:420px;overflow:hidden}
+.hero-img{width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,10,0,.08) 0%,rgba(26,10,0,.15) 30%,rgba(26,10,0,.72) 75%,rgba(26,10,0,.92) 100%)}
+.hero-content{position:absolute;bottom:0;left:0;right:0;padding:28px 20px 32px}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(8px);border-radius:var(--r-full);padding:5px 12px;font-size:11px;font-weight:600;color:rgba(255,255,255,.9);letter-spacing:.6px;text-transform:uppercase;margin-bottom:12px}
+.hero-tag svg{width:10px;height:10px;color:var(--brand)}
+.hero-title{font-family:var(--font-display);font-size:52px;font-weight:800;letter-spacing:-2px;line-height:.95;color:#fff;margin-bottom:10px}
+.hero-sub{font-size:13.5px;font-weight:500;color:rgba(255,255,255,.75);margin-bottom:20px;line-height:1.5}
+.hero-row{display:flex;align-items:center;gap:10px}
+.hero-min{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.18);border-radius:var(--r-full);padding:8px 14px;font-size:13px;font-weight:600;color:#fff}
+.hero-min svg{width:13px;height:13px;opacity:.8}
+.btn-hero{flex:1;background:var(--brand);color:#fff;border:none;border-radius:var(--r-full);padding:13px 20px;font-family:var(--font-body);font-size:14px;font-weight:700;cursor:pointer;text-align:center;box-shadow:var(--shadow-cta);transition:transform .15s,box-shadow .15s}
+.btn-hero:active{transform:scale(.97);box-shadow:0 3px 12px var(--brand-glow)}
+.btn-ghost{flex:1;background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.22);border-radius:var(--r-full);padding:12px 20px;font-family:var(--font-body);font-size:14px;font-weight:700;cursor:pointer;text-align:center;backdrop-filter:blur(8px);transition:background .15s}
+.btn-ghost:active{background:rgba(255,255,255,.22)}
+
+/* ── SECTIONS ── */
+.sec{padding:28px 20px;border-bottom:1px solid var(--border)}
+.sec:last-of-type{border-bottom:none}
+.sec-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4px}
+.sec-title{font-family:var(--font-display);font-size:22px;font-weight:800;letter-spacing:-.5px;color:var(--ink)}
+.sec-link{display:flex;align-items:center;gap:3px;font-size:13px;font-weight:600;color:var(--brand);text-decoration:none;cursor:pointer}
+.sec-link svg{width:13px;height:13px}
+.sec-sub{font-size:13px;color:var(--ink-light);margin-bottom:18px;font-weight:400}
+
+/* ── FEATURED SCROLL ── */
+.featured-wrap{position:relative}
+.h-scroll{display:flex;gap:14px;overflow-x:auto;padding-bottom:4px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.h-scroll::-webkit-scrollbar{display:none}
+.featured-dots{display:flex;justify-content:center;align-items:center;gap:6px;margin-top:14px}
+.featured-dot{width:6px;height:6px;border-radius:50%;background:var(--border);transition:all .25s;cursor:pointer;border:none;padding:0;flex-shrink:0}
+.featured-dot.active{background:var(--brand);width:18px;border-radius:3px}
+.fcard{flex:0 0 175px;background:var(--white);border-radius:var(--r-lg);overflow:hidden;scroll-snap-align:start;box-shadow:var(--shadow-card);cursor:pointer;transition:transform .2s;border:1px solid var(--border)}
+.fcard:active{transform:scale(.97)}
+.fcard-img{width:100%;height:138px;object-fit:cover;display:block;background:var(--surface2)}
+.fcard-body{padding:11px 12px 13px}
+.fcard-badge{display:inline-flex;align-items:center;gap:4px;background:var(--brand);color:#fff;font-size:9px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:3px 8px;border-radius:var(--r-full);margin-bottom:7px}
+.fcard-badge svg{width:8px;height:8px}
+.fcard-name{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.3}
+.fcard-foot{display:flex;justify-content:space-between;align-items:center}
+.fcard-price{font-family:var(--font-body);font-size:15px;font-weight:800;color:var(--brand)}
+.add-btn{width:30px;height:30px;background:var(--surface2);border:1.5px solid var(--border);border-radius:9px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--brand);transition:all .15s}
+.add-btn svg{width:15px;height:15px}
+.add-btn:hover{background:var(--brand);border-color:var(--brand);color:#fff}
+
+/* ── CATEGORIES ── */
+.cats{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.cats::-webkit-scrollbar{display:none}
+.cat{flex:0 0 auto;display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:var(--r-full);font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .2s;border:1.5px solid var(--border);background:var(--white);color:var(--ink-mid)}
+.cat svg{width:13px;height:13px}
+.cat.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* ── MENU LIST ── */
+.menu-list{display:flex;flex-direction:column;gap:12px;margin-top:18px}
+.mitem{display:flex;gap:14px;align-items:center;background:var(--white);border-radius:var(--r-lg);padding:12px;border:1px solid var(--border);cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:var(--shadow-soft)}
+.mitem:active{transform:scale(.98)}
+.mitem-img{width:76px;height:76px;border-radius:var(--r-md);object-fit:cover;flex-shrink:0;background:var(--surface2);display:block}
+.mitem-info{flex:1;min-width:0}
+.mitem-name{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:3px}
+.mitem-desc{font-size:12px;color:var(--ink-light);margin-bottom:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.4}
+.mitem-price{font-family:var(--font-body);font-size:15px;font-weight:800;color:var(--brand)}
+.mitem-add{width:36px;height:36px;background:var(--brand);border:none;border-radius:11px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;flex-shrink:0;box-shadow:0 3px 12px var(--brand-glow);transition:transform .15s}
+.mitem-add svg{width:17px;height:17px}
+.mitem-add:active{transform:scale(.9)}
+
+/* ── LOCATION ── */
+.map-wrap{width:100%;height:190px;border-radius:var(--r-xl);overflow:hidden;margin-bottom:18px;position:relative}
+.map-wrap iframe{width:100%;height:100%;border:0;display:block}
+.map-fallback{width:100%;height:100%;background:linear-gradient(135deg,#E8E4DF,#D6D0C8);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:13px;color:var(--ink-light);font-weight:500}
+.map-fallback svg{width:32px;height:32px;color:var(--brand)}
+.loc-card{background:var(--white);border-radius:var(--r-xl);padding:20px;border:1px solid var(--border);box-shadow:var(--shadow-soft)}
+.loc-eyebrow{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink-light);margin-bottom:4px}
+.loc-city{font-family:var(--font-display);font-size:24px;font-weight:800;letter-spacing:-.6px;margin-bottom:18px}
+.loc-row{margin-bottom:14px}
+.loc-row-label{font-size:11px;color:var(--ink-light);font-weight:500;margin-bottom:2px;text-transform:uppercase;letter-spacing:.6px}
+.loc-row-val{font-size:14px;font-weight:600;color:var(--ink);line-height:1.55}
+.loc-divider{width:100%;height:1px;background:var(--border);margin:16px 0}
+.socials{display:flex;gap:10px;margin-top:4px}
+.soc-btn{width:42px;height:42px;border-radius:var(--r-full);border:1.5px solid var(--border);background:var(--surface);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink-mid);transition:all .2s}
+.soc-btn svg{width:17px;height:17px}
+.soc-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.soc-btn.whatsapp-btn:hover{background:#25D366;border-color:#25D366}
+
+/* ── BLOG ── */
+.blog-list{display:flex;flex-direction:column;gap:14px;margin-top:18px}
+.bcard{display:flex;gap:14px;background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:12px;cursor:pointer;box-shadow:var(--shadow-soft);transition:transform .15s}
+.bcard:active{transform:scale(.98)}
+.bcard-img{width:88px;height:88px;border-radius:var(--r-md);object-fit:cover;flex-shrink:0;background:var(--surface2)}
+.bcard-body{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.bcard-date{font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--brand);margin-bottom:4px}
+.bcard-title{font-family:var(--font-display);font-size:16px;font-weight:800;color:var(--ink);line-height:1.25;margin-bottom:5px}
+.bcard-excerpt{font-size:12.5px;color:var(--ink-light);line-height:1.5;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.blog-empty{font-size:13px;color:var(--ink-light);padding:10px 0}
+
+/* ── BLOG READER ── */
+#blogReader{display:none;position:fixed;inset:0;z-index:900;background:var(--surface);overflow-y:auto;max-width:480px;margin:0 auto}
+#blogReader.show{display:block}
+.reader-topbar{position:sticky;top:0;z-index:10;background:rgba(255,250,247,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;gap:12px}
+.reader-back{width:36px;height:36px;border-radius:var(--r-full);border:1.5px solid var(--border);background:var(--white);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink);flex-shrink:0}
+.reader-back svg{width:15px;height:15px}
+.reader-back-label{font-size:13px;font-weight:700;color:var(--ink)}
+.reader-cover{width:100%;height:220px;object-fit:cover;display:block;background:var(--surface2)}
+.reader-body{padding:24px 20px 48px}
+.reader-date{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--brand);margin-bottom:10px}
+.reader-title{font-family:var(--font-display);font-size:28px;font-weight:800;letter-spacing:-1px;line-height:1.15;color:var(--ink);margin-bottom:16px}
+.reader-content{font-size:14.5px;line-height:1.75;color:var(--ink-mid);white-space:pre-wrap}
+
+/* ── ORDER ONLINE ── */
+.order-wrap{padding:0 20px 28px}
+.btn-full{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:var(--brand);color:#fff;border:none;border-radius:var(--r-full);padding:17px 20px;font-family:var(--font-body);font-size:15px;font-weight:700;cursor:pointer;box-shadow:var(--shadow-cta);transition:transform .15s,box-shadow .15s}
+.btn-full svg{width:16px;height:16px}
+.btn-full:active{transform:scale(.98);box-shadow:0 2px 10px var(--brand-glow)}
+
+/* ── FOOTER ── */
+footer{padding:28px 20px 40px;text-align:center;background:var(--white);border-top:1px solid var(--border)}
+.footer-logo{display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.footer-logo img{width:72px;height:72px;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(26,10,0,.1))}
+.footer-hours{font-size:12.5px;font-weight:600;color:var(--ink-mid);margin-bottom:4px}
+.footer-copy{font-size:12px;color:var(--ink-light);margin-bottom:2px}
+.footer-links{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;margin:14px 0 2px}
+.footer-link{font-size:12px;font-weight:600;color:var(--ink-mid);cursor:pointer;padding:4px 10px;transition:color .15s;text-decoration:none}
+.footer-link:hover{color:var(--brand)}
+.footer-link-sep{font-size:11px;color:var(--border)}
+.powered{display:flex;align-items:center;justify-content:center;gap:5px;margin-top:12px}
+.powered span{font-size:12px;color:var(--ink-light)}
+.powered strong{font-family:var(--font-display);font-size:13px;font-weight:800;color:var(--brand)}
+
+/* ── LEGAL / FAQ PANELS ── */
+.legal-panel{display:none;position:fixed;inset:0;z-index:910;background:var(--surface);overflow-y:auto;max-width:480px;margin:0 auto}
+.legal-panel.show{display:block}
+.legal-topbar{position:sticky;top:0;z-index:10;background:rgba(255,250,247,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;gap:12px}
+.legal-back{width:36px;height:36px;border-radius:var(--r-full);border:1.5px solid var(--border);background:var(--white);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink);flex-shrink:0;transition:background .15s}
+.legal-back:hover{background:var(--surface2)}
+.legal-back svg{width:15px;height:15px}
+.legal-back-label{font-size:14px;font-weight:700;color:var(--ink)}
+.legal-body{padding:24px 20px 56px}
+.legal-title{font-size:26px;font-weight:800;letter-spacing:-.6px;color:var(--ink);margin-bottom:6px}
+.legal-updated{font-size:11px;color:var(--ink-light);margin-bottom:28px;font-weight:500}
+.legal-section{margin-bottom:26px}
+.legal-h2{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.legal-p{font-size:13.5px;color:var(--ink-mid);line-height:1.75;margin-bottom:10px}
+.legal-ul{padding-left:18px;margin-bottom:10px}
+.legal-ul li{font-size:13.5px;color:var(--ink-mid);line-height:1.75;margin-bottom:4px}
+.faq-item{border:1px solid var(--border);border-radius:var(--r-lg);margin-bottom:10px;overflow:hidden}
+.faq-q{width:100%;padding:16px;background:var(--white);border:none;display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-family:var(--font-body);font-size:14px;font-weight:600;color:var(--ink);text-align:left;gap:10px;transition:background .15s}
+.faq-q:hover{background:var(--surface2)}
+.faq-q svg{width:16px;height:16px;color:var(--ink-light);flex-shrink:0;transition:transform .25s}
+.faq-q.open svg{transform:rotate(180deg)}
+.faq-a{display:none;padding:0 16px 16px;font-size:13.5px;color:var(--ink-mid);line-height:1.75}
+.faq-a.show{display:block}
+
+/* ── FLOATING CART ── */
+.cart-float{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(12px);background:var(--ink);color:#fff;padding:14px 22px;border-radius:var(--r-full);font-family:var(--font-body);font-size:14px;font-weight:700;cursor:pointer;border:none;display:flex;align-items:center;gap:14px;box-shadow:0 8px 32px rgba(26,10,0,.35);z-index:200;opacity:0;pointer-events:none;transition:transform .3s cubic-bezier(.34,1.56,.64,1),opacity .25s;white-space:nowrap}
+.cart-float.up{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.cart-float-left{display:flex;align-items:center;gap:8px}
+.cart-float-left svg{width:15px;height:15px}
+.cart-float-badge{background:var(--brand);color:#fff;font-size:11px;font-weight:800;width:20px;height:20px;border-radius:var(--r-full);display:flex;align-items:center;justify-content:center}
+.cart-float-divider{width:1px;height:16px;background:rgba(255,255,255,.2)}
+.cart-float-total{font-family:var(--font-body);font-size:14px;font-weight:800}
+
+/* ── MODAL / DRAWER ── */
+.overlay{position:fixed;inset:0;background:rgba(26,10,0,.55);backdrop-filter:blur(6px);z-index:300;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s}
+.overlay.open{opacity:1;pointer-events:auto}
+.drawer{background:var(--white);border-radius:28px 28px 0 0;padding:24px 20px 44px;width:100%;max-width:480px;transform:translateY(28px);transition:transform .28s cubic-bezier(.34,1.2,.64,1);max-height:82vh;overflow-y:auto}
+.overlay.open .drawer{transform:translateY(0)}
+.drawer-handle{width:38px;height:4px;background:var(--border);border-radius:4px;margin:0 auto 22px}
+.drawer-title{font-family:var(--font-display);font-size:22px;font-weight:800;letter-spacing:-.5px;margin-bottom:20px;color:var(--ink)}
+.citem{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
+.citem-img{width:52px;height:52px;border-radius:var(--r-sm);object-fit:cover;background:var(--surface2)}
+.citem-info{flex:1}
+.citem-name{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:2px}
+.citem-price{font-size:13px;font-weight:600;color:var(--brand)}
+.qty-row{display:flex;align-items:center;gap:10px}
+.qbtn{width:28px;height:28px;border-radius:9px;border:1.5px solid var(--border);background:var(--white);font-family:var(--font-body);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink);transition:all .15s}
+.qbtn svg{width:13px;height:13px}
+.qbtn:hover{background:var(--brand);color:#fff;border-color:var(--brand)}
+.qnum{font-weight:700;font-size:15px;min-width:18px;text-align:center;color:var(--ink)}
+.ctotal{display:flex;justify-content:space-between;align-items:center;padding:18px 0 4px;font-size:16px;font-weight:700;color:var(--ink)}
+.ctotal span:last-child{font-family:var(--font-body);font-size:18px;font-weight:800;color:var(--brand)}
+.empty-cart{text-align:center;padding:40px 0}
+.empty-cart svg{width:48px;height:48px;color:var(--border);margin:0 auto 14px;display:block}
+.empty-cart p{font-size:15px;font-weight:600;color:var(--ink-light)}
+.empty-cart small{font-size:13px;color:var(--ink-light);margin-top:4px;display:block}
+
+/* ── TOAST ── */
+.toast{position:fixed;top:76px;left:50%;transform:translateX(-50%) translateY(-8px);background:var(--ink);color:#fff;padding:10px 20px;border-radius:var(--r-full);font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:all .25s;z-index:500;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast.success{background:#16a34a}
+.toast.error{background:#dc2626}
+
+/* ── LOADING SKELETON ── */
+.skeleton{background:linear-gradient(90deg,var(--surface2) 25%,var(--border) 50%,var(--surface2) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.skel-card{flex:0 0 175px;height:220px;border-radius:var(--r-lg);border:1px solid var(--border)}
+.skel-item{height:100px;border-radius:var(--r-lg);border:1px solid var(--border)}
+
+/* ── LIVE BADGE ── */
+.live-pill{display:inline-flex;align-items:center;gap:5px;background:#dcfce7;color:#15803d;border:1px solid #bbf7d0;border-radius:var(--r-full);padding:3px 10px;font-size:10px;font-weight:700;letter-spacing:.4px;text-transform:uppercase}
+.live-dot{width:6px;height:6px;background:#22c55e;border-radius:50%;animation:pulse-green 1.5s infinite}
+@keyframes pulse-green{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* ════════════════════════════════════════
+   ADMIN PANEL
+════════════════════════════════════════ */
+#adminPanel{display:none;position:fixed;inset:0;z-index:1000;background:var(--white);overflow-y:auto;max-width:480px;margin:0 auto}
+#adminPanel.show{display:block}
+
+/* Admin login */
+.adm-login{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:32px 24px;position:relative}
+.adm-close-btn{width:32px;height:32px;border-radius:var(--r-full);border:1.5px solid var(--border);background:var(--white);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink-mid);transition:all .2s;flex-shrink:0}
+.adm-close-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.adm-close-btn svg{width:13px;height:13px}
+#adminLogin .adm-close-btn{position:absolute;top:18px;right:18px}
+.adm-logo{font-family:var(--font-display);font-size:28px;font-weight:800;color:var(--brand);letter-spacing:-1px;margin-bottom:4px}
+.adm-tagline{font-size:13px;color:var(--ink-light);margin-bottom:36px}
+.adm-card{width:100%;background:var(--white);border:1px solid var(--border);border-radius:var(--r-xl);padding:28px 24px;box-shadow:var(--shadow-card)}
+.adm-field{margin-bottom:16px}
+.adm-label{display:block;font-size:12px;font-weight:600;color:var(--ink-mid);letter-spacing:.4px;text-transform:uppercase;margin-bottom:6px}
+.adm-input{width:100%;padding:13px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);font-family:var(--font-body);font-size:14px;color:var(--ink);background:var(--surface);transition:border-color .15s;outline:none}
+.adm-input:focus{border-color:var(--brand)}
+.adm-btn{width:100%;background:var(--brand);color:#fff;border:none;border-radius:var(--r-full);padding:15px;font-family:var(--font-body);font-size:15px;font-weight:700;cursor:pointer;margin-top:4px;transition:transform .15s}
+.adm-btn:active{transform:scale(.98)}
+.adm-btn:disabled{opacity:.6;cursor:not-allowed}
+.adm-err{font-size:13px;color:#dc2626;margin-top:10px;text-align:center}
+
+/* Admin nav */
+.adm-topbar{position:sticky;top:0;z-index:50;background:rgba(255,250,247,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+.adm-topbar-title{font-family:var(--font-display);font-size:17px;font-weight:800;color:var(--ink)}
+.adm-nav{display:flex;gap:6px;overflow-x:auto;padding:14px 20px 0;scrollbar-width:none;border-bottom:1px solid var(--border)}
+.adm-nav::-webkit-scrollbar{display:none}
+.adm-tab{flex:0 0 auto;padding:9px 18px;border-radius:var(--r-full) var(--r-full) 0 0;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;border:1px solid transparent;color:var(--ink-mid);background:transparent}
+.adm-tab.active{background:var(--white);border-color:var(--border);border-bottom-color:var(--white);color:var(--brand)}
+.adm-body{padding:20px}
+
+/* Section heading */
+.adm-sec-title{font-family:var(--font-display);font-size:18px;font-weight:800;letter-spacing:-.4px;margin-bottom:4px}
+.adm-sec-sub{font-size:12px;color:var(--ink-light);margin-bottom:20px}
+
+/* Stats row */
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+.stat-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px;box-shadow:var(--shadow-soft)}
+.stat-num{font-family:var(--font-display);font-size:28px;font-weight:800;color:var(--brand);letter-spacing:-1px}
+.stat-label{font-size:11px;color:var(--ink-light);font-weight:500;margin-top:2px}
+
+/* Homepage editor */
+.field-group{margin-bottom:20px}
+.field-label{font-size:12px;font-weight:600;color:var(--ink-mid);text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px;display:block}
+.field-input{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-family:var(--font-body);font-size:14px;color:var(--ink);background:var(--surface);outline:none;transition:border-color .15s}
+.field-input:focus{border-color:var(--brand)}
+textarea.field-input{resize:vertical;min-height:80px;line-height:1.5}
+.save-btn{width:100%;background:var(--ink);color:#fff;border:none;border-radius:var(--r-full);padding:15px;font-family:var(--font-body);font-size:15px;font-weight:700;cursor:pointer;margin-top:6px;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:8px}
+.save-btn:active{transform:scale(.98)}
+.save-btn:disabled{opacity:.6;cursor:not-allowed}
+.save-btn svg{width:14px;height:14px}
+
+/* Image upload */
+.upload-zone{border:2px dashed var(--border);border-radius:var(--r-lg);padding:28px;text-align:center;cursor:pointer;transition:border-color .2s;background:var(--surface);margin-bottom:8px}
+.upload-zone:hover{border-color:var(--brand)}
+.upload-zone svg{width:32px;height:32px;color:var(--ink-light);margin:0 auto 10px}
+.upload-zone p{font-size:13px;color:var(--ink-mid);font-weight:500}
+.upload-zone small{font-size:11px;color:var(--ink-light)}
+#heroImgInput{display:none}
+.img-preview{width:100%;height:160px;object-fit:cover;border-radius:var(--r-lg);margin-bottom:8px;display:none}
+
+/* Menu items admin */
+.adm-menu-list{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.adm-mitem{display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:12px;box-shadow:var(--shadow-soft)}
+.adm-mitem-img{width:60px;height:60px;border-radius:var(--r-md);object-fit:cover;background:var(--surface2);flex-shrink:0}
+.adm-mitem-info{flex:1;min-width:0}
+.adm-mitem-name{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:2px}
+.adm-mitem-cat{font-size:11px;color:var(--ink-light);font-weight:500;text-transform:uppercase;letter-spacing:.4px}
+.adm-mitem-price{font-size:14px;font-weight:800;color:var(--brand)}
+.adm-mitem-actions{display:flex;gap:6px;flex-shrink:0}
+.adm-icon-btn{width:32px;height:32px;border-radius:9px;border:1.5px solid var(--border);background:var(--surface);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink-mid);transition:all .2s;flex-shrink:0}
+.adm-icon-btn svg{width:13px;height:13px}
+.adm-icon-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.adm-icon-btn.del:hover{background:#dc2626;border-color:#dc2626;color:#fff}
+
+/* Add item form */
+.add-item-form{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r-xl);padding:20px;margin-bottom:20px}
+.add-item-form .adm-sec-title{font-size:16px;margin-bottom:14px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.cat-select{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-family:var(--font-body);font-size:14px;color:var(--ink);background:var(--surface);outline:none;appearance:none;cursor:pointer}
+.cat-select:focus{border-color:var(--brand)}
+
+/* Upload progress */
+.upload-progress{height:4px;background:var(--border);border-radius:4px;margin-top:8px;overflow:hidden;display:none}
+.upload-progress-bar{height:100%;background:var(--brand);border-radius:4px;transition:width .3s}
+.upload-progress.show{display:block}
+
+/* real-time indicator */
+.rt-badge{display:flex;align-items:center;gap:5px;font-size:11px;color:#15803d;font-weight:600}
+.rt-dot{width:7px;height:7px;background:#22c55e;border-radius:50%;animation:pulse-green 1.5s infinite;flex-shrink:0}
+
+/* Status pill (blog draft/published) */
+.status-pill{display:inline-flex;align-items:center;font-size:10px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;padding:3px 9px;border-radius:var(--r-full)}
+.status-pill.live{background:#dcfce7;color:#15803d}
+.status-pill.draft{background:var(--surface2);color:var(--ink-light)}
+
+/* Logout btn */
+.logout-btn{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--ink-mid);cursor:pointer;background:none;border:1.5px solid var(--border);border-radius:var(--r-full);padding:7px 14px;transition:all .2s}
+.logout-btn:hover{background:#dc2626;color:#fff;border-color:#dc2626}
+.logout-btn svg{width:13px;height:13px}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     CUSTOMER-FACING SITE
+═══════════════════════════════════════ -->
+<div id="customerSite">
+
+<nav class="topbar">
+  <div class="tb-logo" id="tbLogo" onclick="handleLogoTap()" role="button" aria-label="Isebe">
+    <div class="tb-logomark">
+      <img src="https://cdn.phototourl.com/free/2026-06-27-596d78f6-d69a-45d6-86c8-176ed1d9d8d0.png" alt="Isebe logo"/>
+    </div>
+  </div>
+  <div class="tb-right">
+    <button class="tb-cart-btn" onclick="openCart()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      Cart <span class="tb-badge" id="tbBadge">0</span>
+    </button>
+  </div>
+</nav>
+
+<section class="hero" id="heroSection">
+  <img class="hero-img" id="heroImg"
+    src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=900&auto=format&fit=crop&q=80"
+    alt="Isebe signature dish"
+    onerror="this.src='https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&auto=format&fit=crop&q=80'"/>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">
+      <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg>
+      <span id="heroTag">Open now · Yaba, Lagos</span>
+    </div>
+    <h1 class="hero-title" id="heroTitle">ISEBE</h1>
+    <p class="hero-sub" id="heroSub">Best Jollof · Suya · Shawarma<br>Authentic Lagos flavour, delivered.</p>
+    <div class="hero-row">
+      <div class="hero-min">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span id="heroEta">20–30 min</span>
+      </div>
+      <button class="btn-hero" onclick="scrollToMenu()">Order now</button>
+      <button class="btn-ghost" onclick="openCart()">View cart</button>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section class="sec">
+  <div class="sec-hd">
+    <h2 class="sec-title">🔥 Fan favourites</h2>
+    <span class="sec-link" onclick="scrollToMenu()">See all <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></span>
+  </div>
+  <p class="sec-sub">Our most-ordered dishes this week</p>
+  <div class="featured-wrap">
+    <div class="h-scroll" id="featuredScroll">
+      <div class="skel-card skeleton"></div>
+      <div class="skel-card skeleton"></div>
+      <div class="skel-card skeleton"></div>
+    </div>
+    <div class="featured-dots" id="featuredDots"></div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="sec" id="menu">
+  <div class="sec-hd">
+    <h2 class="sec-title">Full menu</h2>
+  </div>
+  <p class="sec-sub" id="menuSub">Everything we're cooking today</p>
+  <div class="cats" id="catBar">
+    <button class="cat active" onclick="filterCat(this,'all')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>All
+    </button>
+    <button class="cat" onclick="filterCat(this,'mains')">🍛 Mains</button>
+    <button class="cat" onclick="filterCat(this,'suya')">🔥 Suya</button>
+    <button class="cat" onclick="filterCat(this,'shawarma')">🌯 Shawarma</button>
+    <button class="cat" onclick="filterCat(this,'drinks')">🥤 Drinks</button>
+    <button class="cat" onclick="filterCat(this,'sides')">🍟 Sides</button>
+  </div>
+  <div class="menu-list" id="menuList">
+    <div class="skel-item skeleton"></div>
+    <div class="skel-item skeleton"></div>
+    <div class="skel-item skeleton"></div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="sec">
+  <h2 class="sec-title" style="margin-bottom:18px">Our location</h2>
+  <div class="map-wrap">
+    <div class="map-fallback">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span id="locAddress">12 Herbert Macaulay Way, Yaba, Lagos</span>
+    </div>
+  </div>
+  <div class="loc-card">
+    <div class="loc-eyebrow">Isebe</div>
+    <div class="loc-city" id="locCity">Yaba, Lagos</div>
+    <div class="loc-row">
+      <div class="loc-row-label">Address</div>
+      <div class="loc-row-val" id="locFull">12 Herbert Macaulay Way, Yaba,<br>Lagos 101212, Lagos State, Nigeria</div>
+    </div>
+    <div class="loc-divider"></div>
+    <div class="loc-row">
+      <div class="loc-row-label">Phone</div>
+      <div class="loc-row-val" id="locPhone">+234 800 000 0000</div>
+    </div>
+    <div class="socials">
+      <button class="soc-btn" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></button>
+      <button class="soc-btn" title="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></button>
+      <button class="soc-btn whatsapp-btn" title="WhatsApp"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" fill="#25D366"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="sec" id="blog">
+  <div class="sec-hd">
+    <h2 class="sec-title">From the kitchen</h2>
+  </div>
+  <p class="sec-sub">News, recipes & behind-the-scenes from Isebe</p>
+  <div class="blog-list" id="blogList">
+    <div class="skel-item skeleton"></div>
+    <div class="skel-item skeleton"></div>
+  </div>
+</section>
+
+<div class="order-wrap">
+  <button class="btn-full" onclick="openCart()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+    Order online
+  </button>
+</div>
+
+<footer>
+  <div class="footer-logo">
+    <img src="https://cdn.phototourl.com/free/2026-06-27-596d78f6-d69a-45d6-86c8-176ed1d9d8d0.png" alt="Isebe logo"/>
+  </div>
+  <p class="footer-hours">🕗 Mon–Sun: 8:00 AM – 10:00 PM</p>
+  <p class="footer-copy">© 2026 Isebe. All rights reserved.</p>
+  <div class="footer-links">
+    <span class="footer-link" onclick="openLegal('privacy')">Privacy Policy</span>
+    <span class="footer-link-sep">•</span>
+    <span class="footer-link" onclick="openLegal('terms')">Terms & Conditions</span>
+    <span class="footer-link-sep">•</span>
+    <span class="footer-link" onclick="openLegal('faq')">FAQ</span>
+  </div>
+  <div class="powered"><span>Powered by</span> <strong>BeepeeLabs</strong></div>
+</footer>
+
+<button class="cart-float" id="cartFloat" onclick="openCart()">
+  <div class="cart-float-left">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+    View cart <span class="cart-float-badge" id="floatCount">0</span>
+  </div>
+  <div class="cart-float-divider"></div>
+  <span class="cart-float-total" id="floatTotal">₦0</span>
+</button>
+
+<div class="overlay" id="cartOverlay" onclick="maybeClose(event)">
+  <div class="drawer">
+    <div class="drawer-handle"></div>
+    <div class="drawer-title">Your cart</div>
+    <div id="cartBody"></div>
+    <div id="cartFooter"></div>
+  </div>
+</div>
+
+</div><!-- /customerSite -->
+
+<!-- BLOG READER -->
+<div id="blogReader">
+  <div class="reader-topbar">
+    <button class="reader-back" onclick="closeBlogPost()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <span class="reader-back-label">Back</span>
+  </div>
+  <img id="readerCover" class="reader-cover" src="" alt="" style="display:none"/>
+  <div class="reader-body">
+    <div class="reader-date" id="readerDate"></div>
+    <h1 class="reader-title" id="readerTitle"></h1>
+    <div class="reader-content" id="readerContent"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     ADMIN PANEL
+═══════════════════════════════════════ -->
+<div id="adminPanel">
+
+  <!-- LOGIN SCREEN -->
+  <div id="adminLogin" class="adm-login">
+    <button class="adm-close-btn" onclick="closeAdmin()" title="Close" aria-label="Close admin panel">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="adm-logo">Isebe</div>
+    <p class="adm-tagline">Admin — Content Management</p>
+    <div class="adm-card">
+      <div class="adm-field">
+        <label class="adm-label">Email</label>
+        <input class="adm-input" type="email" id="loginEmail" placeholder="admin@isebe.ng" autocomplete="username"/>
+      </div>
+      <div class="adm-field">
+        <label class="adm-label">Password</label>
+        <div style="position:relative">
+          <input class="adm-input" type="password" id="loginPass" placeholder="••••••••" autocomplete="current-password" autocorrect="off" autocapitalize="off" spellcheck="false" onkeydown="if(event.key==='Enter')doLogin()" style="padding-right:48px"/>
+          <button type="button" onclick="const i=document.getElementById('loginPass');i.type=i.type==='password'?'text':'password';this.textContent=i.type==='password'?'Show':'Hide'" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;font-size:13px;font-weight:600;color:var(--brand);cursor:pointer">Show</button>
+        </div>
+      </div>
+      <button class="adm-btn" id="loginBtn" onclick="doLogin()">Sign in</button>
+      <p class="adm-err" id="loginErr"></p>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="adminDash" style="display:none">
+    <div class="adm-topbar">
+      <div>
+        <div class="adm-topbar-title">Isebe Admin</div>
+        <div class="rt-badge"><span class="rt-dot"></span>Real-time active</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <button class="logout-btn" onclick="doLogout()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Logout
+        </button>
+        <button class="adm-close-btn" onclick="closeAdmin()" title="Close" aria-label="Close admin panel">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="adm-nav">
+      <button class="adm-tab active" onclick="showTab('overview')">Overview</button>
+      <button class="adm-tab" onclick="showTab('homepage')">Homepage</button>
+      <button class="adm-tab" onclick="showTab('menu')">Menu Items</button>
+      <button class="adm-tab" onclick="showTab('blog')">Blog</button>
+    </div>
+
+    <!-- OVERVIEW TAB -->
+    <div id="tab-overview" class="adm-body">
+      <p class="adm-sec-title">Dashboard</p>
+      <p class="adm-sec-sub">Quick snapshot of your content</p>
+      <div class="stat-row">
+        <div class="stat-card">
+          <div class="stat-num" id="statMenuCount">—</div>
+          <div class="stat-label">Menu items</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="statFeaturedCount">—</div>
+          <div class="stat-label">Featured items</div>
+        </div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-card" style="grid-column:1/-1">
+          <div class="stat-num" style="font-size:13px;font-weight:600;color:var(--ink-mid)" id="statLastUpdate">Loading…</div>
+          <div class="stat-label">Last content update</div>
+        </div>
+      </div>
+      <button class="save-btn" style="background:var(--brand)" onclick="showTab('menu')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Add menu item
+      </button>
+    </div>
+
+    <!-- HOMEPAGE TAB -->
+    <div id="tab-homepage" class="adm-body" style="display:none">
+      <p class="adm-sec-title">Homepage Content</p>
+      <p class="adm-sec-sub">Changes appear instantly for customers</p>
+
+      <div class="field-group">
+        <label class="field-label">Hero Image</label>
+        <img id="heroImgPreview" class="img-preview" src="" alt="Hero preview"/>
+        <div class="upload-zone" onclick="document.getElementById('heroImgInput').click()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <p>Click to upload hero image</p>
+          <small>PNG, JPG or WebP — max 3 MB</small>
+        </div>
+        <input type="file" id="heroImgInput" accept="image/*" onchange="uploadHeroImage(this)"/>
+        <div class="upload-progress" id="heroImgProgress"><div class="upload-progress-bar" id="heroImgBar" style="width:0%"></div></div>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label">Hero Title</label>
+        <input class="field-input" type="text" id="hpTitle" placeholder="ISEBE"/>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Hero Subtitle</label>
+        <textarea class="field-input" id="hpSub" placeholder="Best Jollof · Suya · Shawarma"></textarea>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Status Tag (e.g. Open now · Yaba)</label>
+        <input class="field-input" type="text" id="hpTag" placeholder="Open now · Yaba, Lagos"/>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Delivery ETA</label>
+        <input class="field-input" type="text" id="hpEta" placeholder="20–30 min"/>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Menu Subtitle</label>
+        <input class="field-input" type="text" id="hpMenuSub" placeholder="Everything we're cooking today"/>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Address (short)</label>
+        <input class="field-input" type="text" id="hpLocShort" placeholder="12 Herbert Macaulay Way, Yaba, Lagos"/>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Full Address</label>
+        <textarea class="field-input" id="hpLocFull" placeholder="12 Herbert Macaulay Way, Yaba, Lagos 101212, Lagos State, Nigeria"></textarea>
+      </div>
+      <div class="field-group">
+        <label class="field-label">City Label</label>
+        <input class="field-input" type="text" id="hpCity" placeholder="Yaba, Lagos"/>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Phone Number</label>
+        <input class="field-input" type="text" id="hpPhone" placeholder="+234 800 000 0000"/>
+      </div>
+      <div class="field-group">
+        <label class="field-label">WhatsApp Order Number (with country code)</label>
+        <input class="field-input" type="text" id="hpWa" placeholder="2348000000000"/>
+      </div>
+
+      <button class="save-btn" id="saveHpBtn" onclick="saveHomepage()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+        Save homepage
+      </button>
+    </div>
+
+    <!-- MENU TAB -->
+    <div id="tab-menu" class="adm-body" style="display:none">
+      <p class="adm-sec-title">Menu Items</p>
+      <p class="adm-sec-sub">Add, edit, or remove dishes</p>
+
+      <!-- Add item form -->
+      <div class="add-item-form">
+        <p class="adm-sec-title" id="menuFormTitle">Add / Edit Item</p>
+        <input type="hidden" id="editItemId"/>
+        <div class="field-group">
+          <label class="field-label">Item name</label>
+          <input class="field-input" type="text" id="itemName" placeholder="Jollof Rice & Chicken"/>
+        </div>
+        <div class="form-row">
+          <div>
+            <label class="field-label">Price (₦)</label>
+            <input class="field-input" type="number" id="itemPrice" placeholder="5000"/>
+          </div>
+          <div>
+            <label class="field-label">Category</label>
+            <select class="cat-select field-input" id="itemCat">
+              <option value="mains">🍛 Mains</option>
+              <option value="suya">🔥 Suya</option>
+              <option value="shawarma">🌯 Shawarma</option>
+              <option value="drinks">🥤 Drinks</option>
+              <option value="sides">🍟 Sides</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Short description</label>
+          <input class="field-input" type="text" id="itemDesc" placeholder="Smoky West African jollof rice with tender chicken"/>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Image</label>
+          <img id="itemImgPreview" class="img-preview" src="" alt="Item preview"/>
+          <div class="upload-zone" onclick="document.getElementById('itemImgInput').click()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <p>Upload item photo</p>
+            <small>PNG, JPG or WebP — max 3 MB</small>
+          </div>
+          <input type="file" id="itemImgInput" accept="image/*" onchange="previewItemImg(this)"/>
+          <div class="upload-progress" id="itemImgProgress"><div class="upload-progress-bar" id="itemImgBar" style="width:0%"></div></div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Or paste image URL</label>
+          <input class="field-input" type="url" id="itemImgUrl" placeholder="https://images.unsplash.com/…"/>
+        </div>
+        <div class="field-group" style="display:flex;align-items:center;gap:10px">
+          <input type="checkbox" id="itemFeatured" style="width:16px;height:16px;accent-color:var(--brand)"/>
+          <label for="itemFeatured" class="field-label" style="margin:0;cursor:pointer">Featured (show in fan favourites)</label>
+        </div>
+        <div style="display:flex;gap:10px">
+          <button class="save-btn" id="saveItemBtn" onclick="saveMenuItem()" style="flex:1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span id="saveItemBtnTxt">Add item</span>
+          </button>
+          <button onclick="clearItemForm()" style="padding:15px 18px;border:1.5px solid var(--border);border-radius:var(--r-full);background:var(--white);cursor:pointer;font-family:var(--font-body);font-size:13px;font-weight:600;color:var(--ink-mid)">Clear</button>
+        </div>
+      </div>
+
+      <!-- Existing items list -->
+      <p class="adm-sec-title" style="margin-bottom:4px">All items</p>
+      <p class="adm-sec-sub">Tap edit to modify, delete to remove</p>
+      <div class="adm-menu-list" id="admMenuList">
+        <div class="skel-item skeleton"></div>
+        <div class="skel-item skeleton"></div>
+      </div>
+    </div>
+
+    <!-- BLOG TAB -->
+    <div id="tab-blog" class="adm-body" style="display:none">
+      <p class="adm-sec-title">Blog</p>
+      <p class="adm-sec-sub">Write posts about products, news, or anything else</p>
+
+      <!-- Write / edit post form -->
+      <div class="add-item-form">
+        <p class="adm-sec-title" id="blogFormTitle">New Post</p>
+        <input type="hidden" id="editPostId"/>
+        <div class="field-group">
+          <label class="field-label">Title</label>
+          <input class="field-input" type="text" id="postTitle" placeholder="5 dishes you have to try this month"/>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Excerpt (short summary, shown on the blog list)</label>
+          <textarea class="field-input" id="postExcerpt" placeholder="A quick teaser for this post…" style="min-height:60px"></textarea>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Cover image</label>
+          <img id="postImgPreview" class="img-preview" src="" alt="Cover preview"/>
+          <div class="upload-zone" onclick="document.getElementById('postImgInput').click()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <p>Upload cover image</p>
+            <small>PNG, JPG or WebP — max 3 MB</small>
+          </div>
+          <input type="file" id="postImgInput" accept="image/*" onchange="previewPostImg(this)"/>
+          <div class="upload-progress" id="postImgProgress"><div class="upload-progress-bar" id="postImgBar" style="width:0%"></div></div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Or paste cover image URL</label>
+          <input class="field-input" type="url" id="postImgUrl" placeholder="https://images.unsplash.com/…"/>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Content</label>
+          <textarea class="field-input" id="postContent" placeholder="Write your post here…" style="min-height:180px"></textarea>
+        </div>
+        <div class="field-group" style="display:flex;align-items:center;gap:10px">
+          <input type="checkbox" id="postPublished" checked style="width:16px;height:16px;accent-color:var(--brand)"/>
+          <label for="postPublished" class="field-label" style="margin:0;cursor:pointer">Published (visible to customers)</label>
+        </div>
+        <div style="display:flex;gap:10px">
+          <button class="save-btn" id="savePostBtn" onclick="saveBlogPost()" style="flex:1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span id="savePostBtnTxt">Publish post</span>
+          </button>
+          <button onclick="clearPostForm()" style="padding:15px 18px;border:1.5px solid var(--border);border-radius:var(--r-full);background:var(--white);cursor:pointer;font-family:var(--font-body);font-size:13px;font-weight:600;color:var(--ink-mid)">Clear</button>
+        </div>
+      </div>
+
+      <!-- Existing posts -->
+      <p class="adm-sec-title" style="margin-bottom:4px">All posts</p>
+      <p class="adm-sec-sub">Tap edit to modify, delete to remove</p>
+      <div class="adm-menu-list" id="admBlogList">
+        <div class="skel-item skeleton"></div>
+        <div class="skel-item skeleton"></div>
+      </div>
+    </div>
+  </div><!-- /adminDash -->
+
+</div><!-- /adminPanel -->
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- ═══════════════════════════════════════
+     SCRIPT
+═══════════════════════════════════════ -->
+<script>
+// ════════════════════════════════════════
+// FIREBASE CONFIG
+// ════════════════════════════════════════
+const firebaseConfig = {
+  apiKey:            "AIzaSyDwaYBCfJvnT9srbNwYRTTj8aSxdsl9Y68",
+  authDomain:        "isebe-e2a38.firebaseapp.com",
+  projectId:         "isebe-e2a38",
+  storageBucket:     "isebe-e2a38.firebasestorage.app",
+  messagingSenderId: "1028278452111",
+  appId:             "1:1028278452111:web:a0b85033f6b715c36195fa"
+};
+
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db   = firebase.firestore();
+
+// ════════════════════════════════════════
+// CLOUDINARY CONFIG (free image hosting)
+// 1. Sign up free at cloudinary.com
+// 2. Dashboard → Settings → Upload → Add upload preset → set to "Unsigned"
+// 3. Fill in your Cloud Name and that preset name below
+// ════════════════════════════════════════
+const CLOUDINARY_CLOUD = 'jhayatelier';
+const CLOUDINARY_PRESET = 'iseberestaurant';
+
+// ── State ──────────────────────────────────────────────────────────────────
+let cart = [];
+let allMenuItems = [];
+let whatsappNum = '2348000000000';
+let uploadedItemImgUrl = '';
+let editingItemId = null;
+let editingPostId = null;
+let uploadedPostImgUrl = '';
+let allBlogPosts = [];
+// Firestore real-time unsubscribe handles
+let unsubMenu = null;
+let unsubHome = null;
+let unsubBlog = null;
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+function fmt(n){return '₦'+n.toLocaleString('en-NG')}
+function totalItems(){return cart.reduce((s,i)=>s+i.qty,0)}
+function totalPrice(){return cart.reduce((s,i)=>s+i.price*i.qty,0)}
+
+let toastTimer;
+function showToast(msg, type=''){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show ' + type;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.className='toast', 2200);
+}
+
+// ── Debug logger (remove after fix) ──────────────────────────────────────
+function dbg(msg, type='info'){
+  let box = document.getElementById('_dbgBox');
+  if(!box){
+    box = document.createElement('div');
+    box.id = '_dbgBox';
+    box.style = 'position:fixed;bottom:80px;left:12px;right:12px;z-index:9999;background:#111;color:#0f0;font-size:11px;font-family:monospace;padding:10px;border-radius:10px;max-height:180px;overflow-y:auto;opacity:.93';
+    document.body.appendChild(box);
+  }
+  const line = document.createElement('div');
+  line.style.color = type==='error'?'#f66':type==='warn'?'#fa0':'#0f0';
+  line.textContent = '['+new Date().toLocaleTimeString()+'] '+msg;
+  box.appendChild(line);
+  box.scrollTop = box.scrollHeight;
+}
+
+// ── On load ────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', ()=>{
+  dbg('DOM ready');
+  subscribeHomepage();
+  subscribeMenu();
+  subscribeBlog();
+  auth.onAuthStateChanged(user => {
+    if(user){ dbg('Auth: '+user.email); showDash(); }
+    else dbg('Auth: not logged in');
+  });
+});
+
+// ════════════════════════════════════════
+// HOMEPAGE CONTENT — real-time
+// ════════════════════════════════════════
+function subscribeHomepage(){
+  unsubHome = db.collection('site').doc('homepage')
+    .onSnapshot(snap => {
+      if(snap.exists) applyHomepageContent(snap.data());
+    }, ()=>{});
+}
+
+function applyHomepageContent(d){
+  if(d.hero_image_url){
+    document.getElementById('heroImg').src = d.hero_image_url;
+  }
+  if(d.hero_title) document.getElementById('heroTitle').textContent = d.hero_title;
+  if(d.hero_sub){
+    document.getElementById('heroSub').innerHTML = d.hero_sub.replace(/\n/g,'<br>');
+  }
+  if(d.hero_tag) document.getElementById('heroTag').textContent = d.hero_tag;
+  if(d.delivery_eta) document.getElementById('heroEta').textContent = d.delivery_eta;
+  if(d.menu_sub) document.getElementById('menuSub').textContent = d.menu_sub;
+  if(d.loc_short) document.getElementById('locAddress').textContent = d.loc_short;
+  if(d.loc_full){
+    document.getElementById('locFull').innerHTML = d.loc_full.replace(/\n/g,'<br>');
+  }
+  if(d.loc_city) document.getElementById('locCity').textContent = d.loc_city;
+  if(d.phone) document.getElementById('locPhone').textContent = d.phone;
+  if(d.whatsapp_num) whatsappNum = d.whatsapp_num;
+}
+
+// ════════════════════════════════════════
+// MENU ITEMS — real-time
+// ════════════════════════════════════════
+function subscribeMenu(){
+  dbg('subscribeMenu: starting query');
+  unsubMenu = db.collection('menu_items')
+    .where('active','==',true)
+    .onSnapshot(snap => {
+      dbg('subscribeMenu: got '+snap.size+' docs');
+      if(snap.empty){
+        dbg('subscribeMenu: empty — showing fallback','warn');
+        renderFallbackMenu();
+        return;
+      }
+      allMenuItems = snap.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>a.sort_order-b.sort_order);
+      renderMenuItems(allMenuItems);
+      renderFeatured(allMenuItems);
+      updateStats(allMenuItems);
+    }, err=>{ dbg('subscribeMenu ERROR: '+err.message,'error'); renderFallbackMenu(); });
+}
+
+function renderFeatured(items){
+  const featured = items.filter(i=>i.featured);
+  const wrap = document.getElementById('featuredScroll');
+  const dots = document.getElementById('featuredDots');
+  stopFeaturedCarousel();
+  if(!featured.length){
+    wrap.innerHTML = '<p style="font-size:13px;color:var(--ink-light);padding:10px 0">No featured items yet.</p>';
+    dots.innerHTML = '';
+    return;
+  }
+  wrap.innerHTML = featured.map(item=>`
+    <div class="fcard" onclick="addItem('${esc(item.name)}',${item.price},'${esc(item.image_url||'')}')">
+      <img class="fcard-img" src="${item.image_url||''}" alt="${esc(item.name)}" onerror="this.style.background='#FFE0CC';this.style.display='block'"/>
+      <div class="fcard-body">
+        <div class="fcard-badge"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Fan fave</div>
+        <div class="fcard-name">${item.name}</div>
+        <div class="fcard-foot">
+          <span class="fcard-price">${fmt(item.price)}</span>
+          <button class="add-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        </div>
+      </div>
+    </div>`).join('');
+
+  setupFeaturedCarousel(featured.length);
+}
+
+// ── Featured carousel: swipeable + auto-advance ──────────────────────────
+const FEATURED_AUTOPLAY_MS = 4500; // recommended interval between auto-swipes
+let featuredTimer = null;
+let featuredResumeTimer = null;
+let featuredIndex = 0;
+
+function stopFeaturedCarousel(){
+  clearInterval(featuredTimer);
+  clearTimeout(featuredResumeTimer);
+  featuredTimer = null;
+}
+
+function setupFeaturedCarousel(count){
+  const wrap = document.getElementById('featuredScroll');
+  const dotsWrap = document.getElementById('featuredDots');
+  featuredIndex = 0;
+
+  // Build dots (hide if only one card)
+  if(count > 1){
+    dotsWrap.innerHTML = Array.from({length:count}).map((_,i)=>
+      `<button class="featured-dot${i===0?' active':''}" onclick="goToFeatured(${i})" aria-label="Go to slide ${i+1}"></button>`
+    ).join('');
+  } else {
+    dotsWrap.innerHTML = '';
+  }
+
+  if(count <= 1) return; // nothing to auto-play
+
+  // Update dots as the user manually scrolls/swipes
+  wrap.onscroll = ()=>{
+    const cards = wrap.querySelectorAll('.fcard');
+    if(!cards.length) return;
+    const cardWidth = cards[0].offsetWidth + 14; // includes gap
+    const idx = Math.round(wrap.scrollLeft / cardWidth);
+    updateFeaturedDots(Math.min(idx, cards.length-1));
+  };
+
+  // Pause autoplay on manual interaction, resume after a short delay
+  ['touchstart','pointerdown'].forEach(evt=>{
+    wrap.addEventListener(evt, ()=>{
+      clearInterval(featuredTimer);
+      clearTimeout(featuredResumeTimer);
+      featuredResumeTimer = setTimeout(startFeaturedAutoplay, FEATURED_AUTOPLAY_MS);
+    }, {passive:true});
+  });
+
+  startFeaturedAutoplay();
+}
+
+function startFeaturedAutoplay(){
+  clearInterval(featuredTimer);
+  featuredTimer = setInterval(()=>{
+    const wrap = document.getElementById('featuredScroll');
+    const cards = wrap.querySelectorAll('.fcard');
+    if(!cards.length) return;
+    featuredIndex = (featuredIndex + 1) % cards.length;
+    goToFeatured(featuredIndex);
+  }, FEATURED_AUTOPLAY_MS);
+}
+
+function goToFeatured(i){
+  const wrap = document.getElementById('featuredScroll');
+  const cards = wrap.querySelectorAll('.fcard');
+  if(!cards[i]) return;
+  featuredIndex = i;
+  const cardWidth = cards[0].offsetWidth + 14;
+  wrap.scrollTo({left: cardWidth * i, behavior:'smooth'});
+  updateFeaturedDots(i);
+}
+
+function updateFeaturedDots(i){
+  document.querySelectorAll('.featured-dot').forEach((d,idx)=>d.classList.toggle('active', idx===i));
+}
+
+function renderMenuItems(items){
+  const wrap = document.getElementById('menuList');
+  if(!items.length){
+    wrap.innerHTML = '<p style="font-size:13px;color:var(--ink-light);padding:10px 0">No menu items yet. Add some in the admin panel.</p>';
+    return;
+  }
+  wrap.innerHTML = items.map(item=>`
+    <div class="mitem" data-cat="${item.category}">
+      <img class="mitem-img" src="${item.image_url||''}" alt="${esc(item.name)}" onerror="this.style.background='#FFE0CC'"/>
+      <div class="mitem-info">
+        <div class="mitem-name">${item.name}</div>
+        <div class="mitem-desc">${item.description||''}</div>
+        <div class="mitem-price">${fmt(item.price)}</div>
+      </div>
+      <button class="mitem-add" onclick="addItem('${esc(item.name)}',${item.price},'${esc(item.image_url||'')}')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+    </div>`).join('');
+}
+
+function renderFallbackMenu(){
+  // Show original hard-coded items if DB is empty/not set up
+  const items = [
+    {name:'Jollof Rice & Chicken',price:5500,image_url:'https://images.unsplash.com/photo-1574484284002-952d92456975?w=200&auto=format&fit=crop&q=70',description:'Party jollof, smoky & spiced',category:'mains',featured:true},
+    {name:'Beef Suya (Half Stick)',price:2500,image_url:'https://images.unsplash.com/photo-1544025162-d76694265947?w=200&auto=format&fit=crop&q=70',description:'Northern-style skewered beef',category:'suya',featured:true},
+    {name:'Chicken Shawarma',price:3200,image_url:'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&auto=format&fit=crop&q=70',description:'Grilled chicken, garlic sauce & veggies',category:'shawarma',featured:false},
+    {name:'Zobo Drink (500ml)',price:800,image_url:'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=200&auto=format&fit=crop&q=70',description:'Hibiscus, ginger & lemon',category:'drinks',featured:false},
+    {name:'Fried Plantain (Dodo)',price:1200,image_url:'https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=200&auto=format&fit=crop&q=70',description:'Sweet ripe plantain, golden-fried',category:'sides',featured:false},
+  ];
+  allMenuItems = items;
+  renderMenuItems(items);
+  renderFeatured(items);
+  updateStats(items);
+}
+
+function updateStats(items){
+  document.getElementById('statMenuCount').textContent = items.length;
+  document.getElementById('statFeaturedCount').textContent = items.filter(i=>i.featured).length;
+  document.getElementById('statLastUpdate').textContent = new Date().toLocaleString('en-NG',{dateStyle:'medium',timeStyle:'short'});
+}
+
+// ── Escape helper ─────────────────────────────────────────────────────────
+function esc(s){return String(s).replace(/'/g,"\\'").replace(/"/g,'&quot;')}
+
+// ════════════════════════════════════════
+// BLOG — real-time
+// ════════════════════════════════════════
+function subscribeBlog(){
+  dbg('subscribeBlog: starting query');
+  unsubBlog = db.collection('blog_posts')
+    .where('published','==',true)
+    .orderBy('created_at','desc')
+    .onSnapshot(snap => {
+      dbg('subscribeBlog: got '+snap.size+' docs');
+      if(snap.empty){
+        dbg('subscribeBlog: empty — showing fake','warn');
+        allBlogPosts = getFakePosts();
+        renderBlogPosts(allBlogPosts);
+        return;
+      }
+      allBlogPosts = snap.docs.map(d=>({id:d.id,...d.data()}));
+      renderBlogPosts(allBlogPosts);
+      if(document.getElementById('adminDash').style.display!=='none') loadAdminBlogList();
+    }, err=>{
+      dbg('subscribeBlog ERROR: '+err.message,'error');
+      allBlogPosts = getFakePosts();
+      renderBlogPosts(allBlogPosts);
+    });
+}
+
+function getFakePosts(){
+  return [{
+    id: 'fake-001',
+    title: 'The Secret Behind Our Smoky Party Jollof',
+    excerpt: 'Everyone asks — what makes Isebe jollof taste like a celebration every single time? We finally decided to share (some of) the magic.',
+    cover_image_url: 'https://images.unsplash.com/photo-1574484284002-952d92456975?w=900&auto=format&fit=crop&q=80',
+    created_at: '2026-06-20T10:00:00Z',
+    published: true,
+    content: `There's a reason people drive from Surulere, Lekki, and even Abuja just to taste our jollof rice. It's not magic — well, maybe a little.
+
+The foundation: the right tomato base
+It all starts with a slow-cooked tomato, tatashe, and onion blend. We fry it low and slow for nearly 45 minutes until the raw smell is completely gone and the oil floats on top. That's when you know it's ready. Most people rush this step. We never do.
+
+The firewood effect (and how we recreate it)
+Authentic party jollof gets its smoky depth from open firewood cooking. In our kitchen, we achieve the same result by cranking the heat at the very end and letting the bottom of the pot catch slightly — that's the socata, the coveted crust Nigerians fight over. The smoke rises and infuses the entire pot.
+
+Our spice blend
+We won't give you the full recipe — come on, we still have a business to run 😄 — but the short version is: a combination of Nigerian curry, thyme, bay leaves, stock cubes, and one ingredient we'll keep secret for now.
+
+The rice ratio
+Too much water and your jollof turns mushy. Too little and it burns before it's cooked. Our ratio took months of testing to perfect. We parboil the rice just enough so it finishes cooking in the sauce, absorbing every bit of flavour along the way.
+
+Why it tastes like a party
+Party jollof hits different because it's cooked in large quantities outdoors, slowly, with constant heat management. We've studied that process and worked hard to bring it into our kitchen without losing anything.
+
+Next time you order, close your eyes when you take the first bite. If you don't hear music and smell suya in the air, we haven't done our job right.
+
+Come taste it yourself — we're open every day, 8 AM to 10 PM at 12 Herbert Macaulay Way, Yaba, Lagos. Or just order via WhatsApp 🙌`
+  }];
+}
+
+function fmtDate(d){
+  return new Date(d).toLocaleDateString('en-NG',{day:'numeric',month:'short',year:'numeric'});
+}
+
+function renderBlogPosts(posts){
+  const wrap = document.getElementById('blogList');
+  if(!posts.length){
+    wrap.innerHTML = '<p class="blog-empty">No posts yet — check back soon!</p>';
+    return;
+  }
+  wrap.innerHTML = posts.map(p=>`
+    <div class="bcard" onclick="openBlogPost('${p.id}')">
+      ${p.cover_image_url ? `<img class="bcard-img" src="${p.cover_image_url}" alt="${esc(p.title)}" onerror="this.style.display='none'"/>` : ''}
+      <div class="bcard-body">
+        <div class="bcard-date">${fmtDate(p.created_at)}</div>
+        <div class="bcard-title">${p.title}</div>
+        <div class="bcard-excerpt">${p.excerpt||''}</div>
+      </div>
+    </div>`).join('');
+}
+
+function openBlogPost(id){
+  const post = allBlogPosts.find(p=>String(p.id)===String(id));
+  if(!post) return;
+  const cover = document.getElementById('readerCover');
+  if(post.cover_image_url){
+    cover.src = post.cover_image_url; cover.style.display='block';
+  } else {
+    cover.style.display='none';
+  }
+  document.getElementById('readerDate').textContent = fmtDate(post.created_at);
+  document.getElementById('readerTitle').textContent = post.title;
+  document.getElementById('readerContent').textContent = post.content||'';
+  document.getElementById('blogReader').classList.add('show');
+  document.getElementById('blogReader').scrollTo(0,0);
+  document.body.style.overflow='hidden';
+  history.pushState({blogReader: true}, '', '');
+}
+function closeBlogPost(){
+  document.getElementById('blogReader').classList.remove('show');
+  document.body.style.overflow='';
+}
+
+// ════════════════════════════════════════
+// CART
+// ════════════════════════════════════════
+function addItem(name,price,img){
+  const ex = cart.find(i=>i.name===name);
+  if(ex) ex.qty++; else cart.push({name,price,img,qty:1});
+  syncUI();
+  showToast(name+' added');
+}
+function removeItem(name){
+  const idx = cart.findIndex(i=>i.name===name);
+  if(idx<0) return;
+  if(cart[idx].qty>1) cart[idx].qty--;
+  else cart.splice(idx,1);
+  syncUI(); renderDrawer();
+}
+function bumpItem(name,price,img){ addItem(name,price,img); renderDrawer(); }
+
+function syncUI(){
+  const n=totalItems(),t=totalPrice();
+  const tb=document.getElementById('tbBadge');
+  tb.textContent=n; n>0?tb.classList.add('show'):tb.classList.remove('show');
+  document.getElementById('floatCount').textContent=n;
+  document.getElementById('floatTotal').textContent=fmt(t);
+  const fl=document.getElementById('cartFloat');
+  n>0?fl.classList.add('up'):fl.classList.remove('up');
+}
+
+function renderDrawer(){
+  const body=document.getElementById('cartBody');
+  const foot=document.getElementById('cartFooter');
+  if(!cart.length){
+    body.innerHTML=`<div class="empty-cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><p>Your cart is empty</p><small>Add something delicious!</small></div>`;
+    foot.innerHTML=''; return;
+  }
+  body.innerHTML=cart.map(i=>`
+    <div class="citem">
+      <img class="citem-img" src="${i.img}" alt="${i.name}" onerror="this.style.background='#FFE0CC'"/>
+      <div class="citem-info"><div class="citem-name">${i.name}</div><div class="citem-price">${fmt(i.price)} each</div></div>
+      <div class="qty-row">
+        <button class="qbtn" onclick="removeItem('${esc(i.name)}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+        <span class="qnum">${i.qty}</span>
+        <button class="qbtn" onclick="bumpItem('${esc(i.name)}',${i.price},'${esc(i.img)}')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
+      </div>
+    </div>`).join('');
+  foot.innerHTML=`
+    <div class="ctotal"><span>Total</span><span>${fmt(totalPrice())}</span></div>
+    <button class="btn-full" style="margin-top:14px" onclick="checkout()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.95 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.86 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Place order via WhatsApp
+    </button>`;
+}
+
+function openCart(){renderDrawer();document.getElementById('cartOverlay').classList.add('open');document.body.style.overflow='hidden'}
+function closeCart(){document.getElementById('cartOverlay').classList.remove('open');document.body.style.overflow=''}
+function maybeClose(e){if(e.target===document.getElementById('cartOverlay'))closeCart()}
+
+function checkout(){
+  const lines=cart.map(i=>`• ${i.name} ×${i.qty} — ${fmt(i.price*i.qty)}`).join('\n');
+  const msg=encodeURIComponent(`🍛 *New Isebe Order*\n\n${lines}\n\n*Total: ${fmt(totalPrice())}*\n\nPlease confirm. Thank you!`);
+  window.open(`https://wa.me/${whatsappNum}?text=${msg}`,'_blank');
+}
+
+function filterCat(el,cat){
+  document.querySelectorAll('.cat').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('#menuList .mitem').forEach(m=>{
+    m.style.display=(cat==='all'||m.dataset.cat===cat)?'flex':'none';
+  });
+}
+function scrollToMenu(){document.getElementById('menu').scrollIntoView({behavior:'smooth'})}
+
+// ════════════════════════════════════════
+// ADMIN AUTH
+// ════════════════════════════════════════
+let logoTapCount = 0;
+let logoTapTimer = null;
+function handleLogoTap(){
+  logoTapCount++;
+  clearTimeout(logoTapTimer);
+  logoTapTimer = setTimeout(()=>{ logoTapCount = 0 }, 600);
+  if(logoTapCount >= 3){
+    logoTapCount = 0;
+    clearTimeout(logoTapTimer);
+    openAdmin();
+  }
+}
+
+function openAdmin(){
+  document.getElementById('adminPanel').classList.add('show');
+}
+function closeAdmin(){
+  document.getElementById('adminPanel').classList.remove('show');
+}
+
+async function doLogin(){
+  const email = document.getElementById('loginEmail').value.trim();
+  const pass  = document.getElementById('loginPass').value;
+  const btn   = document.getElementById('loginBtn');
+  const err   = document.getElementById('loginErr');
+  if(!email||!pass){err.textContent='Enter email and password.';return}
+  btn.disabled=true; btn.textContent='Signing in…'; err.textContent='';
+  try {
+    await auth.signInWithEmailAndPassword(email, pass);
+    showDash();
+  } catch(e){
+    err.textContent = e.message || 'Login failed. Check credentials.';
+    btn.disabled=false; btn.textContent='Sign in';
+  }
+}
+
+async function doLogout(){
+  await auth.signOut();
+  document.getElementById('adminDash').style.display='none';
+  document.getElementById('adminLogin').style.display='flex';
+}
+
+function showDash(){
+  document.getElementById('adminLogin').style.display='none';
+  document.getElementById('adminDash').style.display='block';
+  loadAdminMenuList();
+  loadHomepageFields();
+  loadAdminBlogList();
+}
+
+// ════════════════════════════════════════
+// ADMIN TABS
+// ════════════════════════════════════════
+function showTab(name){
+  ['overview','homepage','menu','blog'].forEach(t=>{
+    const el=document.getElementById('tab-'+t);
+    if(el) el.style.display=t===name?'block':'none';
+  });
+  document.querySelectorAll('.adm-tab').forEach((btn,i)=>{
+    btn.classList.toggle('active',['overview','homepage','menu','blog'][i]===name);
+  });
+}
+
+// ════════════════════════════════════════
+// ADMIN — HOMEPAGE EDITOR
+// ════════════════════════════════════════
+async function loadHomepageFields(){
+  try {
+    const snap = await db.collection('site').doc('homepage').get();
+    if(!snap.exists) return;
+    const d = snap.data();
+    document.getElementById('hpTitle').value   = d.hero_title||'';
+    document.getElementById('hpSub').value     = d.hero_sub||'';
+    document.getElementById('hpTag').value     = d.hero_tag||'';
+    document.getElementById('hpEta').value     = d.delivery_eta||'';
+    document.getElementById('hpMenuSub').value = d.menu_sub||'';
+    document.getElementById('hpLocShort').value= d.loc_short||'';
+    document.getElementById('hpLocFull').value = d.loc_full||'';
+    document.getElementById('hpCity').value    = d.loc_city||'';
+    document.getElementById('hpPhone').value   = d.phone||'';
+    document.getElementById('hpWa').value      = d.whatsapp_num||'';
+    if(d.hero_image_url){
+      const p=document.getElementById('heroImgPreview');
+      p.src=d.hero_image_url; p.style.display='block';
+    }
+  } catch(e){}
+}
+
+async function saveHomepage(){
+  const btn = document.getElementById('saveHpBtn');
+  btn.disabled=true; btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;animation:spin .6s linear infinite"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg> Saving…';
+  const payload = {
+    hero_title:   document.getElementById('hpTitle').value,
+    hero_sub:     document.getElementById('hpSub').value,
+    hero_tag:     document.getElementById('hpTag').value,
+    delivery_eta: document.getElementById('hpEta').value,
+    menu_sub:     document.getElementById('hpMenuSub').value,
+    loc_short:    document.getElementById('hpLocShort').value,
+    loc_full:     document.getElementById('hpLocFull').value,
+    loc_city:     document.getElementById('hpCity').value,
+    phone:        document.getElementById('hpPhone').value,
+    whatsapp_num: document.getElementById('hpWa').value,
+    updated_at:   firebase.firestore.FieldValue.serverTimestamp(),
+  };
+  try {
+    await db.collection('site').doc('homepage').set(payload, {merge:true});
+    showToast('Homepage saved ✓','success');
+  } catch(e){
+    showToast('Save failed: '+e.message,'error');
+  }
+  btn.disabled=false;
+  btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Save homepage';
+}
+
+// ── Image upload via Cloudinary (free, no Storage plan needed) ───────────
+async function uploadToCloudinary(file, folder){
+  if(file.size > 3*1024*1024) throw new Error('Image too large (max 3 MB)');
+  const fd = new FormData();
+  fd.append('file', file);
+  fd.append('upload_preset', CLOUDINARY_PRESET);
+  fd.append('folder', folder);
+  const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD}/image/upload`, {method:'POST', body:fd});
+  if(!res.ok) throw new Error('Cloudinary upload failed');
+  const data = await res.json();
+  return data.secure_url;
+}
+
+// ── Hero image upload ─────────────────────────────────────────────────────
+async function uploadHeroImage(input){
+  const file = input.files[0];
+  if(!file) return;
+  const prog = document.getElementById('heroImgProgress');
+  const bar  = document.getElementById('heroImgBar');
+  const prev = document.getElementById('heroImgPreview');
+  prog.classList.add('show'); bar.style.width='40%';
+  try {
+    const url = await uploadToCloudinary(file, 'isebe/hero');
+    bar.style.width='100%';
+    await db.collection('site').doc('homepage').set({hero_image_url:url, updated_at:firebase.firestore.FieldValue.serverTimestamp()},{merge:true});
+    document.getElementById('heroImg').src = url;
+    prev.src=url; prev.style.display='block';
+    showToast('Hero image uploaded ✓','success');
+  } catch(e){
+    showToast('Upload failed: '+e.message,'error');
+  }
+  setTimeout(()=>prog.classList.remove('show'),600);
+}
+
+// ════════════════════════════════════════
+// ADMIN — MENU ITEMS
+// ════════════════════════════════════════
+async function loadAdminMenuList(){
+  try {
+    const snap = await db.collection('menu_items').orderBy('sort_order','asc').get();
+    renderAdminMenuList(snap.docs.map(d=>({id:d.id,...d.data()})));
+  } catch(e){
+    // fallback: try without ordering (index may not exist yet)
+    try {
+      const snap = await db.collection('menu_items').get();
+      renderAdminMenuList(snap.docs.map(d=>({id:d.id,...d.data()})));
+    } catch(e2){}
+  }
+}
+
+function renderAdminMenuList(items){
+  const wrap = document.getElementById('admMenuList');
+  if(!items.length){wrap.innerHTML='<p style="font-size:13px;color:var(--ink-light)">No items yet. Add one above.</p>';return}
+  wrap.innerHTML = items.map(item=>`
+    <div class="adm-mitem">
+      <img class="adm-mitem-img" src="${item.image_url||''}" alt="${esc(item.name)}" onerror="this.style.background='#FFE0CC'"/>
+      <div class="adm-mitem-info">
+        <div class="adm-mitem-name">${item.name}</div>
+        <div class="adm-mitem-cat">${item.category}${item.featured?' · ⭐ Featured':''}</div>
+        <div class="adm-mitem-price">${fmt(item.price)}</div>
+      </div>
+      <div class="adm-mitem-actions">
+        <button class="adm-icon-btn" onclick="editMenuItem(${JSON.stringify(item).replace(/"/g,'&quot;')})" title="Edit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </button>
+        <button class="adm-icon-btn del" onclick="deleteMenuItem('${item.id}')" title="Delete">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+        </button>
+      </div>
+    </div>`).join('');
+}
+
+function previewItemImg(input){
+  const file = input.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const p = document.getElementById('itemImgPreview');
+    p.src=e.target.result; p.style.display='block';
+  };
+  reader.readAsDataURL(file);
+  uploadedItemImgUrl = ''; // Will be set after real upload on save
+}
+
+async function saveMenuItem(){
+  const name  = document.getElementById('itemName').value.trim();
+  const price = parseInt(document.getElementById('itemPrice').value);
+  const cat   = document.getElementById('itemCat').value;
+  const desc  = document.getElementById('itemDesc').value.trim();
+  const feat  = document.getElementById('itemFeatured').checked;
+  const urlIn = document.getElementById('itemImgUrl').value.trim();
+
+  if(!name||!price){showToast('Name and price required','error');return}
+
+  const btn = document.getElementById('saveItemBtn');
+  btn.disabled=true;
+
+  try {
+    let imgUrl = urlIn || uploadedItemImgUrl || '';
+
+    // If a file was selected, upload it now
+    const fileInput = document.getElementById('itemImgInput');
+    if(fileInput.files[0] && !uploadedItemImgUrl){
+      const file = fileInput.files[0];
+      const prog = document.getElementById('itemImgProgress');
+      const bar  = document.getElementById('itemImgBar');
+      prog.classList.add('show'); bar.style.width='40%';
+      try {
+        imgUrl = await uploadToCloudinary(file, 'isebe/menu');
+        bar.style.width='100%';
+      } catch(e){ showToast('Image upload failed: '+e.message,'error'); btn.disabled=false; prog.classList.remove('show'); return; }
+      setTimeout(()=>prog.classList.remove('show'),600);
+    }
+
+    const payload = {name, price, category:cat, description:desc, featured:feat, image_url:imgUrl, active:true, sort_order: Date.now(), updated_at:firebase.firestore.FieldValue.serverTimestamp()};
+
+    if(editingItemId){
+      await db.collection('menu_items').doc(editingItemId).update(payload);
+      showToast('Item updated ✓','success');
+    } else {
+      await db.collection('menu_items').add(payload);
+      showToast('Item added ✓','success');
+    }
+
+    clearItemForm();
+    loadAdminMenuList();
+    // Real-time Firestore listener refreshes the customer menu automatically
+  } catch(e){
+    showToast('Error: '+e.message,'error');
+  }
+  btn.disabled=false;
+}
+
+function editMenuItem(item){
+  editingItemId = item.id;
+  document.getElementById('itemName').value  = item.name||'';
+  document.getElementById('itemPrice').value = item.price||'';
+  document.getElementById('itemCat').value   = item.category||'mains';
+  document.getElementById('itemDesc').value  = item.description||'';
+  document.getElementById('itemImgUrl').value= item.image_url||'';
+  document.getElementById('itemFeatured').checked = !!item.featured;
+  if(item.image_url){
+    const p = document.getElementById('itemImgPreview');
+    p.src=item.image_url; p.style.display='block';
+  }
+  document.getElementById('saveItemBtnTxt').textContent='Update item';
+  document.getElementById('menuFormTitle').textContent='Edit Item';
+  document.querySelector('#tab-menu .add-item-form').scrollIntoView({behavior:'smooth'});
+}
+
+function clearItemForm(){
+  editingItemId = null;
+  uploadedItemImgUrl='';
+  document.getElementById('editItemId').value='';
+  document.getElementById('itemName').value='';
+  document.getElementById('itemPrice').value='';
+  document.getElementById('itemCat').value='mains';
+  document.getElementById('itemDesc').value='';
+  document.getElementById('itemImgUrl').value='';
+  document.getElementById('itemFeatured').checked=false;
+  const p=document.getElementById('itemImgPreview');
+  p.src=''; p.style.display='none';
+  document.getElementById('itemImgInput').value='';
+  document.getElementById('saveItemBtnTxt').textContent='Add item';
+  document.getElementById('menuFormTitle').textContent='Add / Edit Item';
+}
+
+async function deleteMenuItem(id){
+  if(!confirm('Delete this item? This cannot be undone.')) return;
+  try {
+    await db.collection('menu_items').doc(id).update({active:false});
+    showToast('Item deleted','success');
+    loadAdminMenuList();
+  } catch(e){
+    showToast('Error: '+e.message,'error');
+  }
+}
+
+// ════════════════════════════════════════
+// ADMIN — BLOG
+// ════════════════════════════════════════
+async function loadAdminBlogList(){
+  try {
+    const snap = await db.collection('blog_posts').orderBy('created_at','desc').get();
+    renderAdminBlogList(snap.docs.map(d=>({id:d.id,...d.data()})));
+  } catch(e){
+    try {
+      const snap = await db.collection('blog_posts').get();
+      renderAdminBlogList(snap.docs.map(d=>({id:d.id,...d.data()})));
+    } catch(e2){ renderAdminBlogList([]); }
+  }
+}
+
+function renderAdminBlogList(posts){
+  const wrap = document.getElementById('admBlogList');
+  if(!posts.length){wrap.innerHTML='<p style="font-size:13px;color:var(--ink-light)">No posts yet. Write one above.</p>';return}
+  wrap.innerHTML = posts.map(p=>`
+    <div class="adm-mitem">
+      ${p.cover_image_url
+        ? `<img class="adm-mitem-img" src="${p.cover_image_url}" alt="${esc(p.title)}" onerror="this.style.background='#FFE0CC'"/>`
+        : `<div class="adm-mitem-img" style="display:flex;align-items:center;justify-content:center;color:var(--ink-light)"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>`}
+      <div class="adm-mitem-info">
+        <div class="adm-mitem-name">${p.title}</div>
+        <div class="adm-mitem-cat">${fmtDate(p.created_at)}</div>
+        <span class="status-pill ${p.published?'live':'draft'}">${p.published?'Published':'Draft'}</span>
+      </div>
+      <div class="adm-mitem-actions">
+        <button class="adm-icon-btn" onclick='editBlogPost(${JSON.stringify(p).replace(/'/g,"&#39;")})' title="Edit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </button>
+        <button class="adm-icon-btn del" onclick="deleteBlogPost('${p.id}')" title="Delete">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+        </button>
+      </div>
+    </div>`).join('');
+}
+
+function previewPostImg(input){
+  const file = input.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const p = document.getElementById('postImgPreview');
+    p.src=e.target.result; p.style.display='block';
+  };
+  reader.readAsDataURL(file);
+  uploadedPostImgUrl = '';
+}
+
+async function saveBlogPost(){
+  const title   = document.getElementById('postTitle').value.trim();
+  const excerpt = document.getElementById('postExcerpt').value.trim();
+  const content = document.getElementById('postContent').value.trim();
+  const urlIn   = document.getElementById('postImgUrl').value.trim();
+  const published = document.getElementById('postPublished').checked;
+
+  if(!title||!content){showToast('Title and content required','error');return}
+
+  const btn = document.getElementById('savePostBtn');
+  btn.disabled=true;
+
+  try {
+    let imgUrl = urlIn || uploadedPostImgUrl || '';
+
+    const fileInput = document.getElementById('postImgInput');
+    if(fileInput.files[0] && !uploadedPostImgUrl){
+      const file = fileInput.files[0];
+      const prog = document.getElementById('postImgProgress');
+      const bar  = document.getElementById('postImgBar');
+      prog.classList.add('show'); bar.style.width='40%';
+      try {
+        imgUrl = await uploadToCloudinary(file, 'isebe/blog');
+        bar.style.width='100%';
+      } catch(e){ showToast('Image upload failed: '+e.message,'error'); btn.disabled=false; prog.classList.remove('show'); return; }
+      setTimeout(()=>prog.classList.remove('show'),600);
+    }
+
+    const payload = {title, excerpt, content, cover_image_url:imgUrl, published, updated_at:firebase.firestore.FieldValue.serverTimestamp()};
+
+    if(editingPostId){
+      await db.collection('blog_posts').doc(editingPostId).update(payload);
+      showToast('Post updated ✓','success');
+    } else {
+      await db.collection('blog_posts').add({...payload, created_at:firebase.firestore.FieldValue.serverTimestamp()});
+      showToast('Post saved ✓','success');
+    }
+
+    clearPostForm();
+    loadAdminBlogList();
+    // Real-time listener refreshes customer blog view automatically
+  } catch(e){
+    showToast('Error: '+e.message,'error');
+  }
+  btn.disabled=false;
+}
+
+function editBlogPost(post){
+  editingPostId = post.id;
+  document.getElementById('postTitle').value   = post.title||'';
+  document.getElementById('postExcerpt').value = post.excerpt||'';
+  document.getElementById('postContent').value = post.content||'';
+  document.getElementById('postImgUrl').value  = post.cover_image_url||'';
+  document.getElementById('postPublished').checked = !!post.published;
+  if(post.cover_image_url){
+    const p = document.getElementById('postImgPreview');
+    p.src=post.cover_image_url; p.style.display='block';
+  }
+  document.getElementById('savePostBtnTxt').textContent='Update post';
+  document.getElementById('blogFormTitle').textContent='Edit Post';
+  document.querySelector('#tab-blog .add-item-form').scrollIntoView({behavior:'smooth'});
+}
+
+function clearPostForm(){
+  editingPostId = null;
+  uploadedPostImgUrl='';
+  document.getElementById('editPostId').value='';
+  document.getElementById('postTitle').value='';
+  document.getElementById('postExcerpt').value='';
+  document.getElementById('postContent').value='';
+  document.getElementById('postImgUrl').value='';
+  document.getElementById('postPublished').checked=true;
+  const p=document.getElementById('postImgPreview');
+  p.src=''; p.style.display='none';
+  document.getElementById('postImgInput').value='';
+  document.getElementById('savePostBtnTxt').textContent='Publish post';
+  document.getElementById('blogFormTitle').textContent='New Post';
+}
+
+async function deleteBlogPost(id){
+  if(!confirm('Delete this post? This cannot be undone.')) return;
+  try {
+    await db.collection('blog_posts').doc(id).delete();
+    showToast('Post deleted','success');
+    loadAdminBlogList();
+  } catch(e){
+    showToast('Error: '+e.message,'error');
+  }
+}
+</script>
+
+<!-- Spin animation for save button -->
+<style>
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+
+<!-- ═══════════════════════════════════════
+     PRIVACY POLICY PANEL
+═══════════════════════════════════════ -->
+<div id="legalPrivacy" class="legal-panel">
+  <div class="legal-topbar">
+    <button class="legal-back" onclick="closeLegal('privacy')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <span class="legal-back-label">Back</span>
+  </div>
+  <div class="legal-body">
+    <h1 class="legal-title">Privacy Policy</h1>
+    <p class="legal-updated">Last updated: June 2026</p>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">1. Who We Are</h2>
+      <p class="legal-p">Isebe is a Lagos-based food brand offering authentic Nigerian cuisine for dine-in and delivery. Our website and ordering platform are operated by Isebe and powered by BeepeeLabs. This Privacy Policy explains how we collect, use, and protect your personal information when you use our services.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">2. Information We Collect</h2>
+      <p class="legal-p">When you place an order or interact with our platform, we may collect:</p>
+      <ul class="legal-ul">
+        <li>Your name and contact details (phone number, WhatsApp)</li>
+        <li>Delivery address and location information</li>
+        <li>Order history and food preferences</li>
+        <li>Device information and browsing behaviour on our site</li>
+        <li>Payment references (we do not store full card details)</li>
+      </ul>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">3. How We Use Your Information</h2>
+      <p class="legal-p">We use your information to:</p>
+      <ul class="legal-ul">
+        <li>Process and fulfil your food orders</li>
+        <li>Contact you via WhatsApp or phone regarding your order</li>
+        <li>Improve our menu, service quality, and user experience</li>
+        <li>Send occasional promotions (only if you have opted in)</li>
+        <li>Comply with applicable Nigerian laws and regulations</li>
+      </ul>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">4. Data Sharing</h2>
+      <p class="legal-p">We do not sell your personal data. We only share it with trusted third parties where necessary — such as our delivery partners to complete your order — and only to the extent required. All partners are required to handle your data securely.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">5. Data Retention</h2>
+      <p class="legal-p">We retain your order and contact information for up to 12 months for service continuity and records purposes. You may request deletion of your data at any time by contacting us.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">6. Your Rights</h2>
+      <p class="legal-p">You have the right to access, correct, or request deletion of any personal data we hold about you. To exercise these rights, please contact us via WhatsApp or email.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">7. Cookies</h2>
+      <p class="legal-p">Our site may use basic local storage and session data to maintain your cart and preferences during your visit. We do not use third-party tracking cookies for advertising.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">8. Contact</h2>
+      <p class="legal-p">For any privacy-related questions, please reach us at: <strong>hello@isebe.ng</strong> or via our WhatsApp order line.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     TERMS & CONDITIONS PANEL
+═══════════════════════════════════════ -->
+<div id="legalTerms" class="legal-panel">
+  <div class="legal-topbar">
+    <button class="legal-back" onclick="closeLegal('terms')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <span class="legal-back-label">Back</span>
+  </div>
+  <div class="legal-body">
+    <h1 class="legal-title">Terms & Conditions</h1>
+    <p class="legal-updated">Last updated: June 2026</p>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">1. Acceptance of Terms</h2>
+      <p class="legal-p">By accessing or using the Isebe website and placing orders through our platform, you agree to be bound by these Terms and Conditions. If you do not agree, please do not use our service.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">2. Ordering</h2>
+      <p class="legal-p">All orders placed through our platform are subject to availability and confirmation. By submitting an order, you are making an offer to purchase, which becomes binding once we confirm via WhatsApp. We reserve the right to refuse or cancel orders at our discretion.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">3. Pricing</h2>
+      <p class="legal-p">All prices are listed in Nigerian Naira (₦) and are inclusive of applicable taxes. Prices are subject to change without prior notice. The price displayed at the time of your order is the price that applies to that transaction.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">4. Payment</h2>
+      <p class="legal-p">We accept payment via bank transfer and other methods communicated at checkout. Payment must be confirmed before order preparation begins. We are not responsible for delays caused by incomplete or failed payment transfers.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">5. Delivery</h2>
+      <ul class="legal-ul">
+        <li>Estimated delivery times are 20–45 minutes depending on location and demand.</li>
+        <li>Delivery is available within our operational zones in Lagos.</li>
+        <li>We are not liable for delays caused by traffic, weather, or circumstances beyond our control.</li>
+        <li>You are responsible for providing an accurate delivery address.</li>
+      </ul>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">6. Cancellations & Refunds</h2>
+      <p class="legal-p">Orders may only be cancelled before preparation begins. Once preparation has started, cancellations are not accepted. If you receive an incorrect or damaged order, please contact us via WhatsApp within 30 minutes of delivery for resolution. Refunds, where applicable, will be processed within 3–5 business days.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">7. Food Allergies</h2>
+      <p class="legal-p">Our kitchen handles common allergens including nuts, gluten, dairy, and seafood. While we take care to avoid cross-contamination, we cannot guarantee a fully allergen-free environment. Please inform us of any dietary restrictions before ordering.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">8. Operating Hours</h2>
+      <p class="legal-p">We are open every day of the week, Monday to Sunday, from 8:00 AM to 10:00 PM. Orders placed outside these hours will be processed on the next available day.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">9. Limitation of Liability</h2>
+      <p class="legal-p">Isebe shall not be liable for any indirect, incidental, or consequential damages arising from the use of our services. Our total liability in any circumstance is limited to the value of the specific order in question.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">10. Changes to Terms</h2>
+      <p class="legal-p">We reserve the right to update these Terms at any time. Continued use of our platform after changes constitutes your acceptance of the revised Terms.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2 class="legal-h2">11. Governing Law</h2>
+      <p class="legal-p">These Terms are governed by the laws of the Federal Republic of Nigeria. Any disputes shall be resolved under the jurisdiction of Nigerian courts.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     FAQ PANEL
+═══════════════════════════════════════ -->
+<div id="legalFaq" class="legal-panel">
+  <div class="legal-topbar">
+    <button class="legal-back" onclick="closeLegal('faq')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <span class="legal-back-label">Back</span>
+  </div>
+  <div class="legal-body">
+    <h1 class="legal-title">FAQ</h1>
+    <p class="legal-updated">Frequently Asked Questions</p>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What are your opening hours?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">We are open every day — Monday to Sunday — from 8:00 AM to 10:00 PM. Last orders are accepted at 9:30 PM to allow preparation time.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How do I place an order?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">Browse our menu, add your desired items to the cart, then tap "Place order via WhatsApp". Your order summary will be sent directly to our team on WhatsApp to confirm and process.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What areas do you deliver to?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">We currently deliver within Yaba, Surulere, Ikorodu Road, Maryland, Ikeja and select surrounding areas of Lagos. Contact us on WhatsApp to confirm if your location is within our delivery zone.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How long does delivery take?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">Our estimated delivery time is 20–45 minutes depending on your location and current order volume. Peak hours (12 PM–2 PM and 6 PM–9 PM) may experience slight delays. We'll keep you updated via WhatsApp.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What payment methods do you accept?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">We accept bank transfers and other payment options shared at checkout on WhatsApp. Payment must be confirmed before we begin preparing your order.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Can I cancel or modify my order?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">You can cancel or modify your order before preparation begins. Once our team has started cooking your food, we are unable to accept changes or cancellations. Please contact us on WhatsApp as quickly as possible.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        My order was wrong or missing items — what do I do?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">We're sorry about that! Please reach out via WhatsApp within 30 minutes of receiving your order. Send a photo of what you received and we'll work quickly to make it right — either with a replacement or a refund.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Do you cater for allergies or dietary restrictions?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">Please inform us of any dietary restrictions or allergies when placing your order. We'll do our best to accommodate. However, our kitchen handles common allergens (nuts, gluten, dairy, seafood) and we cannot guarantee a fully allergen-free environment.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Do you offer bulk or event catering?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">Yes! We love catering for events, parties, and corporate orders. Contact us on WhatsApp with your event date, expected guest count, and preferred menu so we can put together the best package for you.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How do I contact Isebe?
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-a">The fastest way to reach us is via WhatsApp using the order button on this site. You can also visit us at 12 Herbert Macaulay Way, Yaba, Lagos. We're here every day from 8:00 AM to 10:00 PM.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Legal panels with phone back-button support ──
+const LEGAL_IDS = {privacy:'legalPrivacy', terms:'legalTerms', faq:'legalFaq'};
+
+function openLegal(type){
+  const el = document.getElementById(LEGAL_IDS[type]);
+  if(!el) return;
+  el.classList.add('show');
+  el.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+  // Push a history state so the phone back button can close the panel
+  history.pushState({legalPanel: type}, '', '');
+}
+
+function closeLegal(type){
+  const el = document.getElementById(LEGAL_IDS[type]);
+  if(!el) return;
+  el.classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+function closeAllLegal(){
+  Object.values(LEGAL_IDS).forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.classList.remove('show');
+  });
+  document.body.style.overflow = '';
+}
+
+// Phone back button / browser back — intercept popstate
+window.addEventListener('popstate', function(e){
+  // Close blog reader if open
+  if(document.getElementById('blogReader')?.classList.contains('show')){
+    closeBlogPost();
+    return;
+  }
+  // Close legal panels if any open
+  const anyOpen = Object.values(LEGAL_IDS).some(id =>
+    document.getElementById(id)?.classList.contains('show')
+  );
+  if(anyOpen){
+    closeAllLegal();
+  }
+});
+
+function toggleFaq(btn){
+  const ans = btn.nextElementSibling;
+  const isOpen = ans.classList.contains('show');
+  document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('show'));
+  document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
+  if(!isOpen){ ans.classList.add('show'); btn.classList.add('open'); }
+}
+</script>
+
+</body>
+</html>
