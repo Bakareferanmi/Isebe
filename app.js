@@ -52,11 +52,76 @@ function showToast(msg, type=''){
   toastTimer = setTimeout(()=>t.className='toast', 2200);
 }
 
+// ════════════════════════════════════════
+// ANALYTICS — self-built, Firestore-based
+// Aggregated per-day (not per-session) to keep reads/writes cheap.
+// ════════════════════════════════════════
+function todayKey(d){
+  d = d || new Date();
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+}
+function getDeviceType(){
+  const ua = navigator.userAgent;
+  if(/Tablet|iPad/i.test(ua)) return 'tablet';
+  if(/Mobi|Android|iPhone/i.test(ua) || window.innerWidth < 700) return 'mobile';
+  return 'desktop';
+}
+let _anDayRef = null;
+function anDayRef(){
+  _anDayRef = _anDayRef || db.collection('analytics_daily').doc(todayKey());
+  return _anDayRef;
+}
+function anBump(fields){
+  try {
+    const update = {};
+    Object.keys(fields).forEach(k => update[k] = firebase.firestore.FieldValue.increment(fields[k]));
+    anDayRef().set(update, {merge:true}).catch(()=>{});
+  } catch(e){}
+}
+let _anSessionStart = Date.now();
+let _anTimeLogged = false;
+function trackVisit(){
+  try {
+    const isNew = !localStorage.getItem('isebe_visitor_id');
+    if(isNew) localStorage.setItem('isebe_visitor_id', 'v_'+Date.now()+'_'+Math.random().toString(36).slice(2));
+    const device = getDeviceType();
+    anBump({
+      visits: 1,
+      [isNew ? 'newVisitors' : 'returningVisitors']: 1,
+      ['device_'+device]: 1
+    });
+  } catch(e){}
+}
+function trackAddToCart(name){
+  anBump({addToCart:1});
+  try {
+    if(!name) return;
+    const id = name.trim().toLowerCase().replace(/[^a-z0-9]+/g,'_').slice(0,80) || 'item';
+    db.collection('analytics_items').doc(id).set({
+      name,
+      addCount: firebase.firestore.FieldValue.increment(1),
+      last_added: firebase.firestore.FieldValue.serverTimestamp()
+    }, {merge:true}).catch(()=>{});
+  } catch(e){}
+}
+function trackCartOpened(){ anBump({cartOpened:1}); }
+function trackCheckoutStarted(){ anBump({checkoutStarted:1}); }
+function logTimeOnSite(){
+  if(_anTimeLogged) return;
+  _anTimeLogged = true;
+  const seconds = Math.max(1, Math.round((Date.now()-_anSessionStart)/1000));
+  if(seconds > 3600) return; // guard against absurd values (tab left open overnight etc.)
+  anBump({totalTimeSeconds: seconds, timedSessions: 1});
+}
+document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='hidden') logTimeOnSite(); });
+window.addEventListener('pagehide', logTimeOnSite);
+
 // ── On load ────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', ()=>{
   subscribeHomepage();
   subscribeMenu();
   subscribeBlog();
+  trackVisit();
   auth.onAuthStateChanged(user => {
     if(user) showDash();
   });
@@ -377,6 +442,7 @@ function addItem(name,price,img){
   if(ex) ex.qty++; else cart.push({name,price,img,qty:1});
   syncUI();
   showToast(name+' added');
+  trackAddToCart(name);
 }
 function removeItem(name){
   const idx = cart.findIndex(i=>i.name===name);
@@ -422,7 +488,7 @@ function renderDrawer(){
     </button>`;
 }
 
-function openCart(){renderDrawer();document.getElementById('cartOverlay').classList.add('open');document.body.style.overflow='hidden';history.pushState({cart:true},'','');}
+function openCart(){renderDrawer();document.getElementById('cartOverlay').classList.add('open');document.body.style.overflow='hidden';history.pushState({cart:true},'','');trackCartOpened();}
 function closeCart(){document.getElementById('cartOverlay').classList.remove('open');document.body.style.overflow=''}
 function maybeClose(e){if(e.target===document.getElementById('cartOverlay'))closeCart()}
 
@@ -430,6 +496,7 @@ function checkout(){
   const lines=cart.map(i=>`• ${i.name} ×${i.qty} — ${fmt(i.price*i.qty)}`).join('\n');
   const msg=encodeURIComponent(`🍛 *New Isebe Order*\n\n${lines}\n\n*Total: ${fmt(totalPrice())}*\n\nPlease confirm. Thank you!`);
   window.open(`https://wa.me/${whatsappNum}?text=${msg}`,'_blank');
+  trackCheckoutStarted();
 }
 
 function filterCat(el,cat){
@@ -499,13 +566,14 @@ function showDash(){
 // ADMIN TABS
 // ════════════════════════════════════════
 function showTab(name){
-  ['overview','homepage','menu','blog'].forEach(t=>{
+  ['overview','homepage','menu','blog','analytics'].forEach(t=>{
     const el=document.getElementById('tab-'+t);
     if(el) el.style.display=t===name?'block':'none';
   });
   document.querySelectorAll('.adm-tab').forEach((btn,i)=>{
-    btn.classList.toggle('active',['overview','homepage','menu','blog'][i]===name);
+    btn.classList.toggle('active',['overview','homepage','menu','blog','analytics'][i]===name);
   });
+  if(name==='analytics') loadAnalytics();
 }
 
 // ════════════════════════════════════════
@@ -881,5 +949,98 @@ async function deleteBlogPost(id){
     loadAdminBlogList();
   } catch(e){
     showToast('Error: '+e.message,'error');
+  }
+}
+
+// ════════════════════════════════════════
+// ADMIN — ANALYTICS
+// ════════════════════════════════════════
+function fmtDuration(seconds){
+  if(!seconds || seconds < 1) return '—';
+  const m = Math.floor(seconds/60), s = Math.round(seconds%60);
+  return m > 0 ? `${m}m ${s}s` : `${s}s`;
+}
+
+async function loadAnalytics(){
+  const days = [];
+  const today = new Date();
+  for(let i=29;i>=0;i--){
+    const d = new Date(today); d.setDate(d.getDate()-i);
+    days.push(d);
+  }
+  let dayDocs;
+  try {
+    const snaps = await Promise.all(days.map(d => db.collection('analytics_daily').doc(todayKey(d)).get()));
+    dayDocs = snaps.map((s,i) => ({date: days[i], ...(s.exists ? s.data() : {})}));
+  } catch(e){
+    dayDocs = days.map(d => ({date:d}));
+  }
+
+  const sum = (arr, field) => arr.reduce((s,d) => s + (d[field]||0), 0);
+
+  // ── Summary cards ──
+  const last1  = dayDocs.slice(-1);
+  const last7  = dayDocs.slice(-7);
+  const last30 = dayDocs;
+  document.getElementById('anVisitsToday').textContent = sum(last1,'visits');
+  document.getElementById('anVisits7d').textContent     = sum(last7,'visits');
+  document.getElementById('anVisits30d').textContent    = sum(last30,'visits');
+  const totalTime = sum(last30,'totalTimeSeconds'), timedCount = sum(last30,'timedSessions');
+  document.getElementById('anAvgTime').textContent = fmtDuration(timedCount ? totalTime/timedCount : 0);
+
+  // ── 14-day trend bars ──
+  const last14 = dayDocs.slice(-14);
+  const maxVisits = Math.max(1, ...last14.map(d=>d.visits||0));
+  document.getElementById('anTrendBars').innerHTML = last14.map(d => {
+    const v = d.visits||0;
+    const h = Math.max(2, Math.round((v/maxVisits)*100));
+    return `<div class="an-bar-wrap" title="${v} visit${v===1?'':'s'}"><div class="an-bar" style="height:${h}%"></div></div>`;
+  }).join('');
+  document.getElementById('anTrendLabels').innerHTML = last14.map(d =>
+    `<span>${d.date.toLocaleDateString('en-NG',{day:'numeric',month:'short'})}</span>`
+  ).join('');
+
+  // ── Funnel (visits → added to cart → started checkout) ──
+  const visits = sum(last30,'visits'), added = sum(last30,'addToCart'), checkoutCount = sum(last30,'checkoutStarted');
+  const pct = (n,d) => d ? Math.round((n/d)*100) : 0;
+  const steps = [
+    {label:'Visited site', count:visits, pctOfVisits:100},
+    {label:'Added item to cart', count:added, pctOfVisits:pct(added,visits)},
+    {label:'Started checkout', count:checkoutCount, pctOfVisits:pct(checkoutCount,visits)}
+  ];
+  document.getElementById('anFunnel').innerHTML = steps.map((s,i) => {
+    const dropoff = i>0 ? (steps[i-1].count - s.count) : 0;
+    return `
+    <div class="an-funnel-step">
+      <div class="an-funnel-top"><span>${s.label}</span><small>${s.count} · ${s.pctOfVisits}%</small></div>
+      <div class="an-funnel-bar"><div class="an-funnel-fill" style="width:${s.pctOfVisits}%"></div></div>
+      ${i>0 ? `<div class="an-funnel-drop">${dropoff} dropped off before this step</div>` : ''}
+    </div>`;
+  }).join('');
+
+  // ── Devices ──
+  const dm = sum(last30,'device_mobile'), dt = sum(last30,'device_tablet'), dd = sum(last30,'device_desktop');
+  const dTotal = Math.max(1, dm+dt+dd);
+  const deviceRows = [
+    {label:'Mobile', n:dm}, {label:'Tablet', n:dt}, {label:'Desktop', n:dd}
+  ];
+  document.getElementById('anDevices').innerHTML = (dm+dt+dd) ? deviceRows.map(r => `
+    <div class="an-device-row">
+      <div class="an-device-label">${r.label}</div>
+      <div class="an-device-bar"><div class="an-device-fill" style="width:${Math.round((r.n/dTotal)*100)}%"></div></div>
+      <div class="an-device-pct">${Math.round((r.n/dTotal)*100)}%</div>
+    </div>`).join('') : '<div class="an-empty">No data yet</div>';
+
+  // ── Popular items ──
+  try {
+    const itemsSnap = await db.collection('analytics_items').orderBy('addCount','desc').limit(8).get();
+    const items = itemsSnap.docs.map(d=>d.data());
+    document.getElementById('anItems').innerHTML = items.length ? items.map(it => `
+      <div class="an-item-row">
+        <div class="an-item-name">${esc(it.name)}</div>
+        <div class="an-item-count">${it.addCount||0}×</div>
+      </div>`).join('') : '<div class="an-empty">No items added to cart yet</div>';
+  } catch(e){
+    document.getElementById('anItems').innerHTML = '<div class="an-empty">No data yet</div>';
   }
 }
